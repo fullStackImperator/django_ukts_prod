@@ -1,0 +1,54 @@
+{% extends "blog/baseform.html" %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    {% if sent %}
+        <h1>E-mail successfully sent</h1>
+        <div id="form-message-success">
+            "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
+        </div>
+    {% else %}
+        {% comment %} <h1>Share "{{ post.title }}" by e-mail</h1> {% endcomment %}
+
+        <form class="mb-5" method="post" id="contactForm" name="contactForm">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-12 form-group">
+                {% comment %} {{ form.name|as_crispy_field }} {% endcomment %}
+                <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                {% comment %} {{ form.email|as_crispy_field }} {% endcomment %}
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                {% comment %} {{ form.to|as_crispy_field }} {% endcomment %}
+                <input type="text" class="form-control" name="to" id="subject" placeholder="To">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                {% comment %} {{ form.comments|as_crispy_field }} {% endcomment %}
+                <textarea class="form-control" name="comments" id="message" cols="30" rows="7" placeholder="Write your message"></textarea>
+              </div>
+            </div>  
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
+              <span class="submitting"></span>
+              </div>
+            </div>
+          </form>
+
+
+
+    {% endif %}
+{% endblock %}
+
+{% comment %} <div id="form-message-warning mt-4"></div>  {% endcomment %}
