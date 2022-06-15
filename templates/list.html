@@ -1,49 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
 
-    {% if tag %}
+    {% comment %} {% if tag %}
         <h2 class="mb-3">Posts tagged with "{{ tag.name }}"</h2>
-    {% endif %}
+    {% endif %} {% endcomment %}
 
     {% for post in posts %}
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="row g-0">
-                <div class="col-md-5">
-                    <div class="ratio ratio-16x9">
-                        <img src="{{ post.image.url }}" class="rounded featured-image-list" alt="{{post.title}}">
-                        {% comment %} <img src="https://via.placeholder.com/1280x720" class="rounded" alt="{{post.title}}"> {% endcomment %}
-                    </div>
-                </div>
-                <div class="col-md-7 ps-md-3 pt-3 pt-md-0 d-flex flex-column">
+
+
+    <div class="blog-entry-2 ftco-animate">
+        <a href="{{ post.get_absolute_url }}" class="blog-img d-flex justify-content-center align-items-center" style="background-image: url({{ post.image.url }});">
+            {% comment %} <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-play"></span>
+            </div> {% endcomment %}
+        </a>
+        <div class="d-flex">
+            <div class="meta pt-4">
+                <p>
+                    <span>{{ post.author }}</span>
+                    <span><a href="{{ post.get_absolute_url }}">{{ post.publish.date }}</a></span>
+                    {% comment %} <span><a href="{{ post.get_absolute_url }}">Video</a></span> {% endcomment %}
                     
-                        <h2 class="card-title h5">
-                                <a href="{{ post.get_absolute_url }}">
-                                {{ post.title }}
-                                </a>
-                        </h2>
-                        <div class="text-muted">
-                            <small>
-                                Published {{ post.publish.date }} by <strong>{{ post.author }}</strong>
-                            </small>
-                        </div>
-                        
-                        
-                        <p class="card-text mb-auto py-2">{{ post.body|safe|striptags|truncatechars:100 }}</p>
-                        
-                    
-               
-                        <div>
-                            <a href="{{ post.get_absolute_url }}" class="btn btn-primary btn-sm">Read more</a>
-                        </div>
-                
-                </div>
+                    {% comment %} {% with comments.count as total_comments %} {% endcomment %}
+                        <span><a href="{{ post.get_absolute_url }}">
+                            {{ post.comments.count }} Comment{{ post.comments.count|pluralize }}
+                        </a></span>
+                    {% comment %} {% endwith %} {% endcomment %}
+                </p>
+            </div>
+            <div class="text p-5">
+                <h3 class="mb-4">{{ post.title }}</h3>
+                <p>{{ post.body|safe|striptags|truncatechars:100 }}</p>
+                <p class="mt-5"><a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read more</a></p>
             </div>
         </div>
     </div>
-   
+
     {% endfor %}
 
-    {% include "pagination.html" with page=posts %}
     
 {% endblock content %}

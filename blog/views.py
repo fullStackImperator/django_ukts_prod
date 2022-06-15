@@ -56,7 +56,7 @@ def post_list(request, tag_slug=None):
         tag = get_object_or_404(Tag, slug=tag_slug) 
         object_list = object_list.filter(tags__in=[tag])
 
-    paginator = Paginator(object_list, 3) # 3 posts in each page
+    paginator = Paginator(object_list, 5) # 3 posts in each page
     page = request.GET.get('page')
 
     try:
@@ -74,6 +74,9 @@ def post_list(request, tag_slug=None):
     if query:
         posts=Post.published.filter(Q(title__icontains=query) | Q(tags__name__icontains=query)).distinct()
 
+
+    # post = get_object_or_404(Post, slug=post, status='published', publish__year=year, publish__month=month, publish__day=day)
+    # comments = post.comments.filter(active=True)
 
     context = {'page': page, 'posts': posts, 'tag': tag}
 

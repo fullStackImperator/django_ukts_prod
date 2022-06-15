@@ -7,6 +7,11 @@ app_name = 'blog'
 
 
 urlpatterns = [
+    # login
+    # path('register/', views.registerPage, name="register"),
+    # path('login/', views.loginPage, name="login"),
+    # path('logout/', views.logoutUser, name="logout"),
+
     # post views
     path('', views.post_list, name='post_list'),
     path('tag/<slug:tag_slug>/', views.post_list, name='post_list_by_tag'),
