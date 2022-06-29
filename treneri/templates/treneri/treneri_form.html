@@ -1,0 +1,41 @@
+{% extends 'treneri/baseTreneri.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<form action="" method="post" autocomplete="off">
+
+    {% csrf_token %}
+    {% comment %} {{form|crispy }} {% endcomment %}
+    
+    
+    <div class="row">
+        <div class="col-md-4">
+            {{form.ime|as_crispy_field }}
+            {{form.email|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{form.licenca|as_crispy_field }}
+            {{form.telefon|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{form.klub|as_crispy_field }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i> Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'treneri_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Back to list
+            </a>
+        </div>
+    </div>
+
+
+</form>
+
+
+{% endblock content %}

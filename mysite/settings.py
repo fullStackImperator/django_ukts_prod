@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-98li_w!@*l#he&17&r@g&p16=h^lao8k+b-m$9$($+o9koui!s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.2', '127.0.0.1']
 
 # Application definition
 
@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'blog.apps.BlogConfig',
+    # 'treneri',
     'crispy_forms',
     'taggit',
     'django.contrib.postgres',
     'ckeditor',
     'ckeditor_uploader',
+    'treneri.apps.TreneriConfig',
 ]
 
 TAGGIT_CASE_INSENSITIVE = True
@@ -155,7 +157,7 @@ USE_TZ = True
 #     BASE_DIR / 'static'
 # ]
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')

@@ -1,17 +1,16 @@
 # Create your views here.
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post, Comment
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.generic import ListView
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
-from .forms import EmailPostForm, CommentForm, SearchForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.postgres.search import (SearchQuery, SearchRank,
+                                            SearchVector, TrigramSimilarity)
 from django.core.mail import send_mail
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.db.models import Count, Q
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic import ListView
 from taggit.models import Tag
-from django.db.models import Count
 
-from django.contrib.postgres.search import TrigramSimilarity
-
-from django.db.models import Q
+from .forms import CommentForm, EmailPostForm, SearchForm
+from .models import Comment, Post
 
 
 def post_search(request): 
@@ -161,3 +160,27 @@ def post_share(request, post_id):
         form = EmailPostForm()
     
     return render(request, 'blog/post/share_form.html', {'post': post,'form': form, 'sent': sent})
+
+
+
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'Username or password is incorrect')
+            # return render(request, 'accounts/login.html', context)
+
+    context = {}
+    return render(request, 'login.html', context)
+
+
+# def logoutUser(request):
+#     logout(request)
+#     return redirect('login')

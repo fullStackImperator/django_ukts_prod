@@ -1,0 +1,108 @@
+{% extends 'treneri/baseTreneri.html' %}
+{% load static %}
+
+{% comment %} <link rel="stylesheet" href="{% static "css/style.css" %}"> {% endcomment %}
+
+{% comment %} {% block content %} {% endcomment %}
+{% comment %} <div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+
+        <div class="col-lg-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Lista trenera</h4>
+                  <p class="card-description">
+                    Lista trenera
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                            <td>Ime</td>
+                            <td>Telefon</td>
+                            <td>Email</td>
+                            <td>Klub</td>
+                            <td></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for trener in treneri_list %}
+                            <tr>
+                                <td>{{trener.ime}}</td>
+                                <td>{{trener.telefon}}</td>
+                                <td>{{trener.email}}</td>
+                                <td>{{trener.klub}}</td>
+                                <td>
+                                    <a href="{% url 'treneri_update' trener.id %}" class="btn text-secondary px-0">
+                                        <i class="far fa-edit fa-lg"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+           
+            
+        </div>
+    </div>
+</div> {% endcomment %}
+{% comment %} {% endblock content %} {% endcomment %}
+
+
+{% block content %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Hoverable Table</h4>
+        {% comment %} <p class="card-description"> Add class <code>.table-hover</code> {% endcomment %}
+        </p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Ime</th>
+              <th>Telefon</th>
+              <th>Email</th>
+              <th>Klub</th>
+              <th>
+                  <a href="{% url 'treneri_form' %}" class="btn btn-outline-success">
+                      <i class="fas fa-plus"> Add new </i>
+                  </a>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            {% for trener in treneri_list %}
+            <tr>
+                <td>{{trener.ime}}</td>
+                <td>{{trener.telefon}}</td>
+                <td>{{trener.email}}</td>
+                <td>{{trener.klub}}</td>
+                <td>
+                    <a href="{% url 'treneri_update' trener.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'treneri_delete' trener.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger"></i>
+                        </button>
+
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+    
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {% endblock content %}
