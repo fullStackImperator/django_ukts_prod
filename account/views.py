@@ -23,3 +23,9 @@ def user_login(request):
         form = LoginForm()
     
     return render(request, 'account/login.html', {'form': form})
+
+
+
+# def user_logout(request):
+#     logout(request)
+#     return redirect('')

@@ -1,0 +1,52 @@
+{% load static %}
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      {% comment %} <li class="nav-item nav-profile">
+        <a href="#" class="nav-link">
+          <div class="nav-profile-image">
+            <img src="assets/images/faces/face1.jpg" alt="profile">
+            <span class="login-status online"></span>
+            <!--change to offline or busy as needed-->
+          </div>
+          <div class="nav-profile-text d-flex flex-column">
+            <span class="font-weight-bold mb-2">David Grey. H</span>
+            <span class="text-secondary text-small">Project Manager</span>
+          </div>
+          <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+        </a>
+      </li> {% endcomment %}
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <span class="menu-title">Dashboard</span>
+          <i class="mdi mdi-home menu-icon"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'treneri_list' %}">
+          <span class="menu-title">Lista Trenera</span>
+          <i class="mdi mdi-table-large menu-icon"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'treneri_form' %}">
+          <span class="menu-title">Dodaj Trenera</span>
+          <i class="mdi mdi-contacts menu-icon"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pages/forms/basic_elements.html">
+          <span class="menu-title">Dodaj Magazin</span>
+          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pages/charts/chartjs.html">
+          <span class="menu-title">Analitika</span>
+          <i class="mdi mdi-chart-bar menu-icon"></i>
+        </a>
+      </li>
+      <div class="border-bottom"></div>
+
+    </ul>
+  </nav>

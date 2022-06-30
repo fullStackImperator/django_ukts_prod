@@ -131,7 +131,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_REDIRECT_URL = 'treneri_list' 
 LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+# LOGOUT_URL = 'post_list'
+LOGOUT_REDIRECT_URL = 'blog:post_list'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/

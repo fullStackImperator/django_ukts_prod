@@ -18,11 +18,11 @@ from .models import Trener
 def treneri_list(request):
     treneri = Trener.objects.all()
     
-    paginator = Paginator(treneri, 2)
-    page_number=request.GET.get('page')
-    page_obj=Paginator.get_page(paginator, page_number)
+    # paginator = Paginator(treneri, 2)
+    # page_number=request.GET.get('page')
+    # page_obj=Paginator.get_page(paginator, page_number)
 
-    context = {'treneri_list' : treneri, 'page_obj':page_obj}
+    context = {'treneri_list' : treneri} #, 'page_obj':page_obj}
     return render(request, "treneri/treneri_list.html", context)
 
 @login_required
