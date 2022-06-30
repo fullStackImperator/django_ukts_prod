@@ -13,7 +13,7 @@ urlpatterns = [
     # path('logout/', views.logoutUser, name="logout"),
 
     # post views
-    path('login/', views.loginPage, name="login"),
+    # path('login/', views.loginPage, name="login"),
     path('', views.post_list, name='post_list'),
     path('tag/<slug:tag_slug>/', views.post_list, name='post_list_by_tag'),
     # path('', views.PostListView.as_view(), name='post_list'),

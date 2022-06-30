@@ -11,16 +11,20 @@
     
     
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             {{form.ime|as_crispy_field }}
             {{form.email|as_crispy_field }}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             {{form.licenca|as_crispy_field }}
             {{form.telefon|as_crispy_field }}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             {{form.klub|as_crispy_field }}
+            {{form.region|as_crispy_field }}
+        </div>
+        <div class="col-md-3">
+            {{form.datum_rodjenja|as_crispy_field}}
         </div>
     </div>
     <div class="row">

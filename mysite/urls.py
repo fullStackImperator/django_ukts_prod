@@ -28,9 +28,14 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls', namespace='blog')),
+
     path('treneri/', include('treneri.urls')),
+    
     # path('blog/', include('blog.urls', namespace='blog')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('ckeditor/',include('ckeditor_uploader.urls')),
+
+    path('account/', include(('account.urls', 'account'), namespace='account')),
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

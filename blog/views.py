@@ -5,6 +5,7 @@ from django.contrib.postgres.search import (SearchQuery, SearchRank,
 from django.core.mail import send_mail
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Count, Q
+from django.http import FileResponse, Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import ListView
 from taggit.models import Tag
@@ -163,22 +164,36 @@ def post_share(request, post_id):
 
 
 
-def loginPage(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+def magazin_list(request):
+    pass
 
-        user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            messages.info(request, 'Username or password is incorrect')
-            # return render(request, 'accounts/login.html', context)
+def pdf(request):
+    try:
+        return FileResponse(open('<file name with path>', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404('not found')
 
-    context = {}
-    return render(request, 'login.html', context)
+def magazin_detail(request):
+    return render(request,'template.html')
+    
+
+# def loginPage(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+
+#         user = authenticate(request, username=username, password=password)
+
+#         if user is not None:
+#             login(request, user)
+#             return redirect('home')
+#         else:
+#             messages.info(request, 'Username or password is incorrect')
+#             # return render(request, 'accounts/login.html', context)
+
+#     context = {}
+#     return render(request, 'login.html', context)
 
 
 # def logoutUser(request):

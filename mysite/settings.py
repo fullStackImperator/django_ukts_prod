@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['192.168.1.2', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,6 +127,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+
+LOGIN_REDIRECT_URL = 'treneri_list' 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/

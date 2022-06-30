@@ -1,65 +1,13 @@
 {% extends 'treneri/baseTreneri.html' %}
 {% load static %}
 
-{% comment %} <link rel="stylesheet" href="{% static "css/style.css" %}"> {% endcomment %}
-
-{% comment %} {% block content %} {% endcomment %}
-{% comment %} <div class="page-content page-container" id="page-content">
-    <div class="padding">
-        <div class="row container d-flex justify-content-center">
-
-        <div class="col-lg-8 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Lista trenera</h4>
-                  <p class="card-description">
-                    Lista trenera
-                  </p>
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                            <td>Ime</td>
-                            <td>Telefon</td>
-                            <td>Email</td>
-                            <td>Klub</td>
-                            <td></td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {% for trener in treneri_list %}
-                            <tr>
-                                <td>{{trener.ime}}</td>
-                                <td>{{trener.telefon}}</td>
-                                <td>{{trener.email}}</td>
-                                <td>{{trener.klub}}</td>
-                                <td>
-                                    <a href="{% url 'treneri_update' trener.id %}" class="btn text-secondary px-0">
-                                        <i class="far fa-edit fa-lg"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-            </div>
-        </div>
-           
-            
-        </div>
-    </div>
-</div> {% endcomment %}
-{% comment %} {% endblock content %} {% endcomment %}
-
 
 {% block content %}
 
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Hoverable Table</h4>
+        <h4 class="card-title">Lista trenera</h4>
         {% comment %} <p class="card-description"> Add class <code>.table-hover</code> {% endcomment %}
         </p>
         <table class="table table-hover">
@@ -69,21 +17,26 @@
               <th>Telefon</th>
               <th>Email</th>
               <th>Klub</th>
+              <th>Region</th>
+              <th>Datum Rodjenja</th>
               <th>
                   <a href="{% url 'treneri_form' %}" class="btn btn-outline-success">
-                      <i class="fas fa-plus"> Add new </i>
+                      <i class="fas fa-plus"> Dodaj trenera </i>
                   </a>
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody> 
             
-            {% for trener in treneri_list %}
+            {% comment %} {% for trener in treneri_list %} {% endcomment %}
+            {% for trener in page_obj %}
             <tr>
                 <td>{{trener.ime}}</td>
                 <td>{{trener.telefon}}</td>
                 <td>{{trener.email}}</td>
                 <td>{{trener.klub}}</td>
+                <td>{{trener.region}}</td>
+                <td>{{trener.datum_rodjenja}}</td>
                 <td>
                     <a href="{% url 'treneri_update' trener.id %}" class="btn text-secondary px-0">
                         <i class="far fa-edit fa-lg"></i>
@@ -101,6 +54,21 @@
     
           </tbody>
         </table>
+        
+          <div class="col-lg-4">
+            Showing page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+          </div>
+      		<div class="row mt-5">
+	          <div class="col text-center">
+	            <div class="block-27">
+
+                {% include "partials/_pagination.html" with page=page_obj %}
+
+	            </div>
+	          </div>
+	        </div>  
+
+
       </div>
     </div>
   </div>

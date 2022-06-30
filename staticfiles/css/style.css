@@ -7919,7 +7919,7 @@ header {
   background: #fafafa !important; }
 
 .bg-primary {
-  background: #ee76ad; }
+  background: #063970; }
 
 .btn {
   cursor: pointer;
@@ -7929,17 +7929,17 @@ header {
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #ee76ad;
-    border: 1px solid #ee76ad;
+    background: #063970;
+    border: 1px solid #063970;
     color: #fff; }
     .btn.btn-primary:hover {
-      border: 1px solid #ee76ad;
+      border: 1px solid #063970;
       background: transparent;
-      color: #ee76ad; }
+      color: #063970; }
     .btn.btn-primary.btn-outline-primary {
-      border: 1px solid #ee76ad;
+      border: 1px solid #063970;
       background: transparent;
-      color: #ee76ad; }
+      color: #063970; }
       .btn.btn-primary.btn-outline-primary:hover {
         border: 1px solid transparent;
         background: #000;
