@@ -11,4 +11,12 @@ urlpatterns = [
     path('export_csv', views.export_csv, name='export_csv'),  
     path('export_excel', views.export_excel, name='export_excel'),
     path('export_pdf', views.export_pdf, name='export_pdf'),
+
+    # path('slike-upload', views.slike_form, name='slike_form'),
+
+    path('search-trener/', views.main_search_view, name='search_trener'), 
+    path('search-trener/search/', views.search_results, name='search'), 
+    path('search-trener/search/<pk>', views.trener_detail_view, name='detail'), 
+
+
 ]

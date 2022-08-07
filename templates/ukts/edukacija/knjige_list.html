@@ -1,0 +1,53 @@
+{% extends 'ukts/edukacija/knjige_base.html' %}
+{% load static %}
+
+{% block count %}
+<span class="font-sans-serif display-4 fw-bold" data-countup='{"endValue":{{knjige.count}}}'>0</span>                  
+{% endblock count %} 
+
+
+
+{% block cover %}
+
+{% comment %} <div class="bg-holder" style="background-image:url({{knjige.last.cover.url}}); background-size: contain;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-right","delay":0}'>
+</div> {% endcomment %}
+
+<div class="bg-holder" style="background-image:url({% static 'ukts/img/knjige/knjige_naslovna.jpeg' %}); background-size: contain;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-right","delay":0}'>
+</div>
+
+{% endblock cover %} 
+
+
+
+
+{% block knjige %}
+
+    {% comment %} {% if files %} {% endcomment %}
+        {% for knjiga in knjige %}
+    
+            <div class="col-lg-6 col-xl-3 mt-3 mt-xl-3 pe-lg-2" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
+                <div class="hoverbox min-vh-50 h-100 py-6">
+                    <div class="bg-holder rounded" style="background-image:url({{ knjiga.cover.url }}); background-size: contain;">
+                    </div>
+                    <!--/.bg-holder-->
+
+                    <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
+                    <div class="align-self-center px-4 px-lg-6 text-center"><span class="fas fa-file-pdf text-white fs-2 mb-2"></span>
+                        <h4 class="mb-1 text-white">{{ knjiga.autor }}</h4>
+                        <p class="px-3 font-sans-serif text-500">{{ knjiga.naslov }}</p>
+                        <p class="px-3 font-sans-serif text-500">{{ knjiga.godina }}</p>
+                        {% if knjiga.pdf %}
+                            <a href="{{ knjiga.pdf.url }}" class="btn btn-outline-light mt-4" >
+                            Pogledaj PDF</a>
+                        {% else %}
+                            <span class="text-muted">No PDF</span>
+                        {% endif %}
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        {% comment %} {% endif %} {% endcomment %}
+
+{% endblock knjige %} 

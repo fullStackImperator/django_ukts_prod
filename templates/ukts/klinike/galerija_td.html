@@ -1,0 +1,90 @@
+{% extends 'ukts/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    {% include 'ukts/partials/_navbar.html' %}
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main min-vh-100" id="top">
+
+
+        <!-- ============================================-->
+        <!-- Preloader ==================================-->
+        <div class="preloader" id="preloader">
+          <div class="loader">
+            <div class="line-scale-pulse-out-rapid">
+              <div> </div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div> </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================-->
+        <!-- End of Preloader ===========================-->
+  
+  
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="mt-5 mt-lg-0 py-lg-7" id="page-portfolio">
+  
+          <div class="container">
+
+            <div class="row mb-5 mb-lg-7">
+              <div class="col-lg-6">
+                <h1 class="text-decoration-underline d-inline fs-4 fs-md-5">Galerija </h1>
+                <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>  Trenerski &nbsp;Dani &nbsp;"Borivoje Cenić" </h5>
+                <p class="mt-3">Galerija slika sa svih Trenerskih Dana. </br>Izaberite godinu i uzivajte u uspomenama.</p>
+              </div>
+            </div>
+            
+            <ul class="nav font-sans-serif mb-2" data-filter-nav="data-filter-nav">
+              <li class="nav-item"><a class="nav-link isotope-nav active" href="#!" data-filter="*">sve</a></li>
+
+              {% for foto in fotos %}
+              {% if foto.tip == "td" %}  
+              {% regroup object_list|dictsortreversed:"godina" by godina as godina_list %}
+               
+              {% for godina in godina_list %}
+              {% comment %} {% if godina.list.tip == "td" %}  {% endcomment %}
+                {% comment %} {% if foto.godina.unique %} {% endcomment %}
+               <li class="nav-item"><a class="nav-link isotope-nav" href="#!" data-filter=".a{{ godina.grouper }}">{{ godina.grouper }}</a></li>
+               {% comment %} {% endif %} {% endcomment %}
+              {% endfor %}
+              {% endif %}
+              {% endfor %}
+    
+            </ul>
+
+            <div class="row g-3 mt-2" id="portfolio-gallery" data-zanim-timeline="{}" data-zanim-trigger="scroll" data-isotope='{"layoutMode":"packery"}'>
+              
+                     
+            {% for foto in fotos %}
+            {% if foto.tip == "td" %}  
+              <div class="col-6 col-md-3 isotope-item a{{ foto.godina }}"><a href="#!" data-bp="{{ foto.slika.url }}" data-bigpicture='{"gallery":"#portfolio-gallery"}' data-caption="{{ foto.naslov }}"><img class="rounded w-100 fit-cover" src="{{ foto.slika.url }}" alt="" data-zanim-xs='{"animation":"zoom-in","delay":0.1}' /></a></div>
+              {% endif %}
+            {% endfor %}
+            </div>
+
+           </div>
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+  
+  
+      </main>
+      <!-- ===============================================-->
+      <!--    End of Main Content-->
+      <!-- ===============================================-->
+
+      
+    {% include 'ukts/partials/_footer.html' %}
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+from django.urls import path, include
+from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+app_name = 'edukacija'
+
+
+urlpatterns = [
+    # login
+
+    path('knjige/', views.KnjigeView.as_view(), name="knjige"),
+    # path('klinika-bcb/', views.KlinikaView.as_view(), name="klinika_bcb"),
+    # path('trenerski-dani/', views.TrenerskiDaniView.as_view(), name="trenerski_dani"),
+
+    # path('klinika-bcb-galerija/', views.GalerijaBCBView.as_view(), name="galerija_bcb"),
+    # path('klinika-td-galerija/', views.GalerijaTDView.as_view(), name="galerija_td"),
+
+    # path('klinika-bcb-istorija/', views.IstorijaBCBView.as_view(), name="istorija_bcb"),
+    # path('klinika-td-istorija/', views.IstorijaTDView.as_view(), name="istorija_td"),
+
+
+]

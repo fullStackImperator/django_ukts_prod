@@ -23,23 +23,23 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'treneri_list' %}">
+        <a class="nav-link" href="{% url 'treneri:treneri_list' %}">
           <span class="menu-title">Lista Trenera</span>
           <i class="mdi mdi-table-large menu-icon"></i>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'treneri_form' %}">
+        <a class="nav-link" href="{% url 'treneri:treneri_form' %}">
           <span class="menu-title">Dodaj Trenera</span>
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pages/forms/basic_elements.html">
-          <span class="menu-title">Dodaj Magazin</span>
+      {% comment %} <li class="nav-item">
+        <a class="nav-link" href="{% url 'treneri:slike_form' %}">
+          <span class="menu-title">Dodaj Slike za Galeriju</span>
           <i class="mdi mdi-format-list-bulleted menu-icon"></i>
         </a>
-      </li>
+      </li> {% endcomment %}
       <li class="nav-item">
         <a class="nav-link" href="pages/charts/chartjs.html">
           <span class="menu-title">Analitika</span>

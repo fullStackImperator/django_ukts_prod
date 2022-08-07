@@ -1,0 +1,107 @@
+{% load static %}
+
+<nav class="fancynavbar fancynavbar-expand-lg" data-zanim-lg='{"from":{"opacity":1,"x":70},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.3}' data-zanim-xs='{"from":{"opacity":1,"y":-37},"to":{"opacity":1,"y":0},"ease":"CubicBezier","duration":0.8,"delay":0.3}' data-zanim-trigger="scroll" data-exclusive="true">
+    <div class="fancynavbar-togglerbar" data-onscroll-fade-in="data-onscroll-fade-in"><a class="fancynavbar-brand" href=""><img class="fancynavbar-brand-img" src="{% static 'ukts/img/logo-sparrow-invert.svg' %}" alt="" width="30" height="30" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll" />
+
+        <!--You can use icon or text logo as well-->
+        <!--<span class='fab fa-superpowers fs-3'></span>-->
+        <!--<span class='logo-sparrow'>S</span>-->
+      </a>
+      <div class="fancynavbar-toggler">
+        <svg class="fancynavbar-toggler-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.5}' data-zanim-trigger="scroll">
+          <path id="path-top" d="M20,25c0,0,22,0,30,0c16,0,18.89,40.71-.15,21.75C38.7,35.65,19.9,16.8,19.9,16.8"></path>
+          <path id="path-middle" d="M20,32h30"></path>
+          <path id="path-bottom" d="M19.9,46.98c0,0,18.8-18.85,29.95-29.95C68.89-1.92,66,38.78,50,38.78c-8,0-30,0-30,0"></path>
+        </svg>
+      </div>
+      <div class="fancynavbar-addon" data-zanim-lg='{"from":{"opacity":1,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll">
+        <a class="fancynavbar-addon-item" href="https://twitter.com/sabc_ukts"><span class="fab fa-twitter"></span></a>
+        <a class="fancynavbar-addon-item" href="https://www.instagram.com/ukts_kosarkaski_treneri_srbije"><span class="fab fa-instagram"></span></a>
+        <a class="fancynavbar-addon-item" href="https://www.facebook.com/ukts.rs/"><span class="fab fa-facebook"></span></a>
+        <a class="fancynavbar-addon-item" href="https://www.linkedin.com/company/udru%C5%BEenje-ko%C5%A1arka%C5%A1kih-trenera-srbije"><span class="fab fa-linkedin"></span></a>
+        <a class="fancynavbar-addon-item" href="#languageModal" data-bs-toggle="modal"><span class="font-sans-serif ls fw-black fs--1 d-block">EN</span></a>
+      </div>
+    </div>
+    <div class="fancynavbar-collapse">
+      <ul class="fancynavbar-nav">
+        <li class="fancynav-item"><a class="fancynav-link" href="{% url 'blog:post_list' %}"><span class="fancynav-link-content">početna</span></a></li>                  
+        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">o nama</span></a>
+          <div class="fancy-dropdown-menu">
+            <div class="row pb-4 pt-3">
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="../homes/default.html"> Statut</a><a class=" false fancy-dropdown-item" href="../homes/bicycle.html"> Pravilnik o izdavanju dozvole za rad (licence) košarkaškim trenerima</a><a class=" false fancy-dropdown-item" href="../homes/bigcartel.html"> Kodeks</a><a class=" false fancy-dropdown-item" href="../homes/cafe.html"> Članovi U.O.</a><a class=" false fancy-dropdown-item" href="../homes/digital.html"> Istorijat</a><a class=" false fancy-dropdown-item" href="../homes/ecommerce.html"> Nagrada za životno delo</a><a class=" false fancy-dropdown-item" href="../homes/event.html">Kontakt</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% comment %} <li class="fancynav-item"><a class="fancynav-link" href="../pages/portfolio.html"><span class="fancynav-link-content">vesti</span></a></li> {% endcomment %}
+        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">za trenere</span></a>
+          <div class="fancy-dropdown-menu">
+            <div class="row pb-4 pt-3">
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_istorija' %}">Planeri za trening</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Formulari</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Primeri uplatnica</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Aplikacija za trenere</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">klinike</span></a>
+          <div class="fancy-dropdown-menu">
+            <div class="row pb-2 pt-3">
+              <div class="col-sm-auto mb-3">
+                <div class="row">
+                  <div class="col-sm-auto pe-4"><a class="fancy-dropdown-item text-white fw-black ls text-uppercase fs--1 mb-1" href="JavaScript:void(0)">beogradska kosarkaska klinika</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:klinika_bcb' %}"> Video</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:istorija_bcb' %}"> Istorija</a><a class=" false fancy-dropdown-item" href=""> Prijava</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_bcb' %}"> Galerija</a>{% if request.user.is_staff %}<a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_bcb_upload' %}">Dodaj slike</a>{% endif %}
+                  </div>
+                  {% comment %} <div class="col-sm-auto pe-4"><a class=" false fancy-dropdown-item" href="../components/sparrow/googlemap.html"> Googlemap</a><a class=" false fancy-dropdown-item" href="../components/sparrow/icons.html"> Icons</a><a class=" false fancy-dropdown-item" href="../components/sparrow/inline-player.html"> Inline player</a><a class=" false fancy-dropdown-item" href="../components/sparrow/lightbox.html"> Lightbox</a><a class=" false fancy-dropdown-item" href="../components/sparrow/masonry.html"> Masonry</a><a class=" false fancy-dropdown-item" href="../components/sparrow/parallax.html"> Parallax</a><a class=" false fancy-dropdown-item" href="../components/sparrow/progressbar.html"> Progressbar</a><a class=" false fancy-dropdown-item" href="../components/sparrow/spacing.html"> Spacing</a><a class=" false fancy-dropdown-item" href="../components/sparrow/typed-text.html"> Typed text</a><a class=" false fancy-dropdown-item" href="../components/sparrow/typography.html"> Typography</a><a class=" false fancy-dropdown-item" href="../components/sparrow/zanimation.html"> Zanimation</a>
+                  </div> {% endcomment %}
+                </div>
+              </div>
+              <div class="col-sm-auto pe-3 mb-3"><a class="fancy-dropdown-item text-white fw-black ls text-uppercase fs--1 mb-1" href="JavaScript:void(0)">trenerski dani "Borivoje Cenic"</a><a class=" false fancy-dropdown-item" href="../components/bootstrap/badges.html"> Video</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:istorija_td' %}"> Istorija</a><a class=" false fancy-dropdown-item" href="../components/sparrow/anchor.html"> Prijava</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_td' %}"> Galerija</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">magazin</span></a>
+          <div class="fancy-dropdown-menu">
+            <div class="row pb-4 pt-3">
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_istorija' %}">Istorija</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Brojevi</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">edukacija</span></a>
+          <div class="fancy-dropdown-menu">
+            <div class="row pb-2 pt-3">
+              <div class="col-sm-auto mb-3">
+                <div class="row">
+                  <div class="col-sm-auto pe-4"><a class="fancy-dropdown-item text-white fw-black ls text-uppercase fs--1 mb-1" href="JavaScript:void(0)">UKTS</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}"> Knjige</a><a class=" false fancy-dropdown-item" href="../components/sparrow/borders.html"> Stručne teme</a><a class=" false fancy-dropdown-item" href="../components/sparrow/carousel.html"> Vezbe</a>
+                  </div>
+                  {% comment %} <div class="col-sm-auto pe-4"><a class=" false fancy-dropdown-item" href="../components/sparrow/googlemap.html"> Googlemap</a><a class=" false fancy-dropdown-item" href="../components/sparrow/icons.html"> Icons</a><a class=" false fancy-dropdown-item" href="../components/sparrow/inline-player.html"> Inline player</a><a class=" false fancy-dropdown-item" href="../components/sparrow/lightbox.html"> Lightbox</a><a class=" false fancy-dropdown-item" href="../components/sparrow/masonry.html"> Masonry</a><a class=" false fancy-dropdown-item" href="../components/sparrow/parallax.html"> Parallax</a><a class=" false fancy-dropdown-item" href="../components/sparrow/progressbar.html"> Progressbar</a><a class=" false fancy-dropdown-item" href="../components/sparrow/spacing.html"> Spacing</a><a class=" false fancy-dropdown-item" href="../components/sparrow/typed-text.html"> Typed text</a><a class=" false fancy-dropdown-item" href="../components/sparrow/typography.html"> Typography</a><a class=" false fancy-dropdown-item" href="../components/sparrow/zanimation.html"> Zanimation</a>
+                  </div> {% endcomment %}
+                </div>
+              </div>
+              <div class="col-sm-auto pe-3 mb-3"><a class="fancy-dropdown-item text-white fw-black ls text-uppercase fs--1 mb-1" href="JavaScript:void(0)">Eksterni</a><a class=" false fancy-dropdown-item" href="../components/bootstrap/badges.html"> FIBA Assist</a><a class=" false fancy-dropdown-item" href="../components/bootstrap/buttons.html">Korisni linkovi</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">licence</span></a>
+          <div class="fancy-dropdown-menu">
+            <div class="row pb-4 pt-3">
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="../documentation/getting-started.html"> Pravilnik o licenciranju</a><a class=" false fancy-dropdown-item" href="{% url 'treneri:search_trener' %}">Pretraga UKTS trenera</a><a class=" false fancy-dropdown-item" href="https://www.fiba.basketball/wabc/find-a-member">Pretraga FIBA trenera</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">dokumenta</span></a>
+          <div class="fancy-dropdown-menu">
+            <div class="row pb-4 pt-3">
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="../documentation/getting-started.html">Formulari za trening</a><a class=" false fancy-dropdown-item" href="../documentation/file-structure.html">Formulari za lekarski pregled</a><a class=" false fancy-dropdown-item" href="../documentation/file-structure.html">Obrasci za članarine</a><a class=" false fancy-dropdown-item" href="../documentation/file-structure.html">Aplikacija</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% comment %} <li class="fancynav-item"><a class="fancynav-link" href="../pages/contact.html"><span class="fancynav-link-content">obrasci / formulari</span></a></li> {% endcomment %}
+        <li class="fancynav-item"><a class="fancynav-link" href="../pages/contact.html"><span class="fancynav-link-content">faq</span></a></li>                  
+        <li class="fancynav-item"><a class="fancynav-link" href="../pages/contact.html"><span class="fancynav-link-content">kontakt</span></a></li>                  
+
+      </ul>
+    </div>
+  </nav>

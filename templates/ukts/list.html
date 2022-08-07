@@ -1,0 +1,68 @@
+{% extends 'ukts/landing.html' %}
+{% load static %}
+
+
+
+{% block news %}
+
+<section class="overflow-hidden bg-light" id="bicycleProducts">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 mb-4 mb-md-6" id="bicycle-caption">
+
+                <h2 class="text-center"><span class="text-decoration-underline">Novosti</span></h2>
+            </div>
+            <div class="col-12">
+                <div class="swiper-container-news theme-slider h-100" data-swiper='{"autoplay":{"delay":5000,"disableOnInteraction":false},"loop":true,    "spaceBetween":30,"breakpoints":{"576":{"slidesPerView":2},"768":{"slidesPerView":3},"992":{"slidesPerView":4}}}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
+                
+                    <div class="swiper-wrapper">
+
+                        {% for post in posts %}
+
+                        <div class="swiper-slide">
+                            <a style="text-decoration : none" href="{{ post.get_absolute_url }}">
+                                <div class="card-flyer">
+                                    <div class="text-box">
+                                        <div class="image-box">
+                                            <img src={{ post.image.url }} alt="" />
+                                        </div>
+                                        <div class="text-container">
+                                            <h6>{{ post.title|truncatechars:17 }}</h6>
+                                            <p>{{ post.body|safe|striptags|truncatechars:200 }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-footer-date">    
+                                            {{ post.publish.date }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ post.comments.count }} komentar{{ post.comments.count|pluralize:"a" }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        {% endfor %}
+
+                        
+
+                    </div>
+
+                    <div class="swiper-nav">
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="vertical-center">
+        <a class="btn btn-outline-danger mt-6" href="#!">Vise Novosti</a>
+    </div>
+</section> 
+
+{% comment %} {% include "partials/_pagination.html" with page=posts %} {% endcomment %}
+
+    
+{% endblock news %}

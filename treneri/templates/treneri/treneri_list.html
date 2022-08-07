@@ -10,9 +10,9 @@
   <h1 class="h3 mb-0 text-gray-800">Lista Trenera</h1>
   <a href="#" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
       <i class="fas fa-download fa-sm text-white-50"></i> Download PDF</a>
-  <a href="{% url 'export_excel' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+  <a href="{% url 'treneri:export_excel' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
       <i class="fas fa-download fa-sm text-white-50"></i> Download Excel</a>
-  <a href="{% url 'export_csv' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+  <a href="{% url 'treneri:export_csv' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
       <i class="fas fa-download fa-sm text-white-50"></i> Download CSV</a>
 </div>
 </div>
@@ -30,12 +30,12 @@
               <tr>
                 <th>Ime</th>
                 <th>Telefon</th>
-                <th>Email</th>
+                <th>Email</th>2
                 <th>Klub</th>
                 <th>Region</th>
                 <th>Datum Rodjenja</th>
                 <th>
-                    <a href="{% url 'treneri_form' %}" class="btn-sm btn-outline-success ">
+                    <a href="{% url 'treneri:treneri_form' %}" class="btn-sm btn-outline-success ">
                         <i class="fas fa-plus"> Dodaj trenera </i>
                     </a>
                 </th>
@@ -43,8 +43,8 @@
             </thead>
             <tbody> 
               
-              {% comment %} {% for trener in treneri_list %} {% endcomment %}
-              {% for trener in page_obj %}
+              {% for trener in treneri_list %}
+              {% comment %} {% for trener in page_obj %} {% endcomment %}
               <tr>
                   <td>{{trener.ime}}</td>
                   <td>{{trener.telefon}}</td>
@@ -53,10 +53,10 @@
                   <td>{{trener.region}}</td>
                   <td>{{trener.datum_rodjenja}}</td>
                   <td>
-                      <a href="{% url 'treneri_update' trener.id %}" class="btn px-0">
+                      <a href="{% url 'treneri:treneri_update' trener.id %}" class="btn px-0">
                           <i class="mdi mdi-border-color fa-lg"></i>
                       </a>
-                      <form action="{% url 'treneri_delete' trener.id %}" method="post" class="d-inline">
+                      <form action="{% url 'treneri:treneri_delete' trener.id %}" method="post" class="d-inline">
                           {% csrf_token %}
                           <button type="submit" class="btn">
                               <i class="mdi mdi-delete mdi-lg text-danger"></i>

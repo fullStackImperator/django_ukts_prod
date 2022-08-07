@@ -1,0 +1,139 @@
+{% extends 'ukts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% include 'ukts/partials/_navbar.html' %}
+
+    
+
+
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main min-vh-100" id="top">
+
+
+      <!-- ============================================-->
+      <!-- Preloader ==================================-->
+      <div class="preloader" id="preloader">
+        <div class="loader">
+          <div class="line-scale-pulse-out-rapid">
+            <div> </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div> </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================-->
+      <!-- End of Preloader ===========================-->
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="py-0" id="split-youtube">
+
+          <div class="container-fluid">
+            <div class="row min-vh-100">
+              
+              <div class="col-lg-6 px-0 order-lg-2 min-vh-50 min-vh-lg-100">
+                <div class="position-relative h-100" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
+                  <div class="bg-holder" style="background-image:url(../assets/img/headers/header-split-youtube-background.jpg);">
+                    <div class="yt-video" data-youtube-embed='{"videoId":"z4dmETnM8mA","startSeconds":"458","endSeconds":"665","attrs":{"data-zanim-trigger":"scroll","data-zanim-lg":{"animation":"zoom-out","delay":0}}}'></div>
+                  </div>
+                  <!--/.bg-holder-->
+  
+                </div>
+              </div>
+              
+              {% comment %} <div class="col-lg-6 py-6 py-lg-8"> {% endcomment %}
+              {% comment %} <div class="row h-100 flex-center py-6"> {% endcomment %}
+                {% comment %} <div class="col-lg-6"> {% endcomment %}
+                  {% comment %} <h1 class="text-decoration-underline d-inline fs-4 fs-md-5">Video </h1>
+                  <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>  Beogradska &nbsp;Košarkaška &nbsp;Klinika </h5>
+                  <p class="mt-3">Galerija slika sa svih Beogradskih Košarkaskih Klinika. </br>Izaberite godinu i uzivajte u uspomenama.</p> {% endcomment %}
+                {% comment %} </div> {% endcomment %}
+              {% comment %} </div> {% endcomment %}
+              {% comment %} </div> {% endcomment %}
+              
+              <div class="col-lg-6 py-6 py-lg-8">
+                <div class="row h-100 flex-center">
+                  <div class="col-lg-9">
+                    <h1 class="text-decoration-underline d-inline fs-4 fs-md-5">Video </h1>
+                    <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>  Beogradska &nbsp;Košarkaška &nbsp;Klinika </h5>
+                    <p class="mt-3">Svi snimci Beogradskih Košarkaskih Klinika. </br>Izaberite godinu i steknite znanje</p>
+                    {% comment %} <p class="fs-2 text-dark font-sans-serif">Video Galerija,<span class="text-black fw-black text-decoration-underline mx-2">UKTS</span></br>Riznica znanja od 2002 godine</p><a class="btn ps-0 mt-3 mt-lg-5" href="#!" data-bigpicture='{"vimeoSrc":"58558497#t=10"}'>
+                    </a> {% endcomment %}
+                  </div>
+                </div>
+              </div> 
+
+
+            </div>
+          </div>
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+      {% comment %} <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="py-4" id="bicycleFeatures1">
+
+          <div class="container-fluid">
+            <div class="row m-0">
+        
+
+            {% block bcb %}
+            {% endblock bcb %} 
+
+
+
+            
+          </div>
+        </div>
+        <!-- end of .container-->
+      
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================--> {% endcomment %}
+
+
+     <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="py-3" id="LandingFeatures">
+
+          <div class="container-fluid">
+            <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+ 
+              {% block td %}
+              {% endblock td %} 
+
+              
+
+
+            </div>
+          </div>
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+    
+
+
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    {% include 'ukts/partials/_footer.html' %}
+
+    {% endblock content %} 

@@ -1,0 +1,7 @@
+
+
+<form id="upload_form" method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type='submit' class="btn btn-primary m-3">Submit</button>
+</form>

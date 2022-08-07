@@ -1,16 +1,23 @@
 import csv
 import datetime
 import imp
+import json
 import re
 
 import xlwt
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 
 from .forms import TreneriForm
 from .models import Trener
+
+from django.views.generic import ListView
+import json
+from django.http import JsonResponse
+
+from django.core import serializers
 
 # Create your views here.
 
@@ -37,10 +44,10 @@ def treneri_form(request, id=0):
         return render(request, "treneri/treneri_form.html", context)
     else:
         if id == 0:
-            form = TreneriForm(request.POST)
+            form = TreneriForm(request.POST, request.FILES)
         else:
             trener = Trener.objects.get(pk=id)
-            form = TreneriForm(request.POST, instance=trener)
+            form = TreneriForm(request.POST, request.FILES, instance=trener)
 
         if form.is_valid():
             form.save()
@@ -105,3 +112,63 @@ def export_excel(request):
 @login_required
 def export_pdf(request):
     pass
+
+
+
+
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
+
+def main_search_view(request):
+
+    return render(request, 'ukts/licenca/search_trener.html', {})
+
+def trener_detail_view(request, pk):
+    obj = get_object_or_404(Trener, pk=pk)
+    return render(request, 'ukts/licenca/trener_detail.html', {'obj': obj})
+    # post_url+'#'+str(reply.id
+
+def search_results(request):
+    if is_ajax(request=request):
+        res = None
+        trener = request.POST.get('trener')
+        # print(trener)
+        qs = Trener.objects.filter(ime__icontains=trener)
+        # print(qs)
+        if len(qs) > 0 and len(trener) > 0:
+            data = []
+            for pos in qs:
+                item = {
+                    'pk': pos.pk, 
+                    'ime': pos.ime,
+                    'licenca': pos.licenca,
+                    'slika': str(pos.slika.url),
+                }
+                data.append(item)
+            res = data
+        else:
+            res = "Nema trenera sa tim imenom"
+
+        return JsonResponse({'data': res})
+    return JsonResponse({})
+
+
+
+
+
+# class TrenerInfoView(ListView):
+#     model = Trener
+#     template_name = 'ukts/licenca/search_trener.html'
+
+#     def get_cotext_data(self, **kwargs):
+#         context = super(self).get_context_data(**kwargs)
+        
+#         treneri_list= Trener.objects.values()
+#         # context["qs_json"] = json.dumps( list(Trener.objects.all().values()) )
+#         context['qs_json'] = serializers.serialize('json', treneri_list, fields=('ime', 'licenca'))
+        
+#         # print ("TEST:")
+#         # print (context['qs_json'])
+#         #return JsonResponse(context, safe=False)
+#         return context
