@@ -199,3 +199,43 @@ def magazin_detail(request):
 # def logoutUser(request):
 #     logout(request)
 #     return redirect('login')
+
+
+
+
+
+def vesti_list(request, tag_slug=None):
+#    posts = Post.published.all()
+    object_list = Post.published.all()
+
+    tag = None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug) 
+        object_list = object_list.filter(tags__in=[tag])
+
+    paginator = Paginator(object_list, 5) # 3 posts in each page
+    page = request.GET.get('page')
+
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer deliver the first page
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results
+        posts = paginator.page(paginator.num_pages)
+
+
+    # search
+    query = request.GET.get("q")
+    if query:
+        posts=Post.published.filter(Q(title__icontains=query) | Q(tags__name__icontains=query)).distinct()
+
+
+    # post = get_object_or_404(Post, slug=post, status='published', publish__year=year, publish__month=month, publish__day=day)
+    # comments = post.comments.filter(active=True)
+
+    context = {'page': page, 'posts': posts, 'tag': tag}
+
+    return render(request, 'ukts/onama/vesti.html', context)

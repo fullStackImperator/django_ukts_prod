@@ -33,6 +33,10 @@ urlpatterns = [
 
     path('treneri/',  include(('treneri.urls', 'treneri'), namespace='treneri')),
 
+    path('o-nama/', include(('onama.urls', 'onama'), namespace='onama')),
+
+    path('za-trenere/', include(('zatrenere.urls', 'zatrenere'), namespace='zatrenere')),
+
     path('magazin/', include(('magazin.urls', 'magazin'), namespace='magazin')),
 
     path('klinike/', include(('klinike.urls', 'klinike'), namespace='klinike')),
@@ -43,10 +47,12 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('ckeditor/',include('ckeditor_uploader.urls')),
 
-    path('account/', include(('account.urls', 'account'), namespace='account')),    
+    path('account/', include(('account.urls', 'account'), namespace='account')),  
 
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
+handler404 = "ukts_website.exception.handler404"

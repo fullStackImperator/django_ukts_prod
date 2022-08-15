@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav class="fancynavbar fancynavbar-expand-lg" data-zanim-lg='{"from":{"opacity":1,"x":70},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.3}' data-zanim-xs='{"from":{"opacity":1,"y":-37},"to":{"opacity":1,"y":0},"ease":"CubicBezier","duration":0.8,"delay":0.3}' data-zanim-trigger="scroll" data-exclusive="true">
-    <div class="fancynavbar-togglerbar" data-onscroll-fade-in="data-onscroll-fade-in"><a class="fancynavbar-brand" href=""><img class="fancynavbar-brand-img" src="{% static 'ukts/img/logo-sparrow-invert.svg' %}" alt="" width="30" height="30" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll" />
+    <div class="fancynavbar-togglerbar" data-onscroll-fade-in="data-onscroll-fade-in"><a class="fancynavbar-brand" href=""><img class="fancynavbar-brand-img" src="{% static 'ukts/img/ukts_logo_tr.png' %}" alt="" width="30" height="30" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll" />
 
         <!--You can use icon or text logo as well-->
         <!--<span class='fab fa-superpowers fs-3'></span>-->
@@ -24,11 +24,11 @@
     </div>
     <div class="fancynavbar-collapse">
       <ul class="fancynavbar-nav">
-        <li class="fancynav-item"><a class="fancynav-link" href="{% url 'blog:post_list' %}"><span class="fancynav-link-content">početna</span></a></li>                  
+        {% comment %} <li class="fancynav-item"><a class="fancynav-link" href="{% url 'blog:post_list' %}"><span class="fancynav-link-content">početna</span></a></li>                   {% endcomment %}
         <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">o nama</span></a>
           <div class="fancy-dropdown-menu">
             <div class="row pb-4 pt-3">
-              <div class="col-auto"><a class=" false fancy-dropdown-item" href="../homes/default.html"> Statut</a><a class=" false fancy-dropdown-item" href="../homes/bicycle.html"> Pravilnik o izdavanju dozvole za rad (licence) košarkaškim trenerima</a><a class=" false fancy-dropdown-item" href="../homes/bigcartel.html"> Kodeks</a><a class=" false fancy-dropdown-item" href="../homes/cafe.html"> Članovi U.O.</a><a class=" false fancy-dropdown-item" href="../homes/digital.html"> Istorijat</a><a class=" false fancy-dropdown-item" href="../homes/ecommerce.html"> Nagrada za životno delo</a><a class=" false fancy-dropdown-item" href="../homes/event.html">Kontakt</a>
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'onama:statut' %}"> Statut</a><a class=" false fancy-dropdown-item" href="{% url 'onama:pravilnik' %}"> Pravilnik o izdavanju dozvole za rad (licence) košarkaškim trenerima</a><a class=" false fancy-dropdown-item" href="{% url 'onama:kodeks' %}"> Kodeks</a><a class=" false fancy-dropdown-item" href="{% url 'onama:clanovi_uo' %}"> Članovi U.O.</a><a class=" false fancy-dropdown-item" href="{% url 'onama:istorijat' %}"> Istorijat</a><a class=" false fancy-dropdown-item" href="{% url 'onama:zivotno_delo' %}"> Nagrada za životno delo</a><a class=" false fancy-dropdown-item" href="{% url 'blog:vesti' %}">Vesti</a>
               </div>
             </div>
           </div>
@@ -37,23 +37,38 @@
         <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">za trenere</span></a>
           <div class="fancy-dropdown-menu">
             <div class="row pb-4 pt-3">
-              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_istorija' %}">Planeri za trening</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Formulari</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Primeri uplatnica</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Aplikacija za trenere</a>
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'zatrenere:planeri' %}">Planeri za trening</a><a class=" false fancy-dropdown-item" href="{% url 'zatrenere:lekarski' %}">Lekarski pregled</a><a class=" false fancy-dropdown-item" href="{% url 'zatrenere:uplatnice' %}">Primeri uplatnica</a><a class=" false fancy-dropdown-item" href="{% url 'zatrenere:aplikacija' %}">Aplikacija za trenere</a>
               </div>
             </div>
           </div>
         </li>
-        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">klinike</span></a>
+        {% comment %} <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">klinike</span></a>
           <div class="fancy-dropdown-menu">
             <div class="row pb-2 pt-3">
               <div class="col-sm-auto mb-3">
                 <div class="row">
                   <div class="col-sm-auto pe-4"><a class="fancy-dropdown-item text-white fw-black ls text-uppercase fs--1 mb-1" href="JavaScript:void(0)">beogradska kosarkaska klinika</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:klinika_bcb' %}"> Video</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:istorija_bcb' %}"> Istorija</a><a class=" false fancy-dropdown-item" href=""> Prijava</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_bcb' %}"> Galerija</a>{% if request.user.is_staff %}<a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_bcb_upload' %}">Dodaj slike</a>{% endif %}
                   </div>
-                  {% comment %} <div class="col-sm-auto pe-4"><a class=" false fancy-dropdown-item" href="../components/sparrow/googlemap.html"> Googlemap</a><a class=" false fancy-dropdown-item" href="../components/sparrow/icons.html"> Icons</a><a class=" false fancy-dropdown-item" href="../components/sparrow/inline-player.html"> Inline player</a><a class=" false fancy-dropdown-item" href="../components/sparrow/lightbox.html"> Lightbox</a><a class=" false fancy-dropdown-item" href="../components/sparrow/masonry.html"> Masonry</a><a class=" false fancy-dropdown-item" href="../components/sparrow/parallax.html"> Parallax</a><a class=" false fancy-dropdown-item" href="../components/sparrow/progressbar.html"> Progressbar</a><a class=" false fancy-dropdown-item" href="../components/sparrow/spacing.html"> Spacing</a><a class=" false fancy-dropdown-item" href="../components/sparrow/typed-text.html"> Typed text</a><a class=" false fancy-dropdown-item" href="../components/sparrow/typography.html"> Typography</a><a class=" false fancy-dropdown-item" href="../components/sparrow/zanimation.html"> Zanimation</a>
-                  </div> {% endcomment %}
+                  </div>
                 </div>
               </div>
               <div class="col-sm-auto pe-3 mb-3"><a class="fancy-dropdown-item text-white fw-black ls text-uppercase fs--1 mb-1" href="JavaScript:void(0)">trenerski dani "Borivoje Cenic"</a><a class=" false fancy-dropdown-item" href="../components/bootstrap/badges.html"> Video</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:istorija_td' %}"> Istorija</a><a class=" false fancy-dropdown-item" href="../components/sparrow/anchor.html"> Prijava</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_td' %}"> Galerija</a>
+              </div>
+            </div>
+          </div>
+        </li> {% endcomment %}
+        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">klinika</span></a>
+          <div class="fancy-dropdown-menu">
+            <div class="row pb-4 pt-3">
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'klinike:klinika_bcb' %}">Video</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_bcb' %}">Galerija</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Aplikacija</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">trenerski dani</span></a>
+          <div class="fancy-dropdown-menu">
+            <div class="row pb-4 pt-3">
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'klinike:klinika_bcb' %}">Video</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_bcb' %}">Galerija</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Aplikacija</a>
               </div>
             </div>
           </div>
@@ -68,20 +83,27 @@
         </li>
         <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">edukacija</span></a>
           <div class="fancy-dropdown-menu">
+            <div class="row pb-4 pt-3">
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}">Knjige</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}">Stručne teme</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}">FIBA Assist</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}">Korisni linkovi</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% comment %} <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">edukacija</span></a>
+          <div class="fancy-dropdown-menu">
             <div class="row pb-2 pt-3">
               <div class="col-sm-auto mb-3">
                 <div class="row">
                   <div class="col-sm-auto pe-4"><a class="fancy-dropdown-item text-white fw-black ls text-uppercase fs--1 mb-1" href="JavaScript:void(0)">UKTS</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}"> Knjige</a><a class=" false fancy-dropdown-item" href="../components/sparrow/borders.html"> Stručne teme</a><a class=" false fancy-dropdown-item" href="../components/sparrow/carousel.html"> Vezbe</a>
                   </div>
                   {% comment %} <div class="col-sm-auto pe-4"><a class=" false fancy-dropdown-item" href="../components/sparrow/googlemap.html"> Googlemap</a><a class=" false fancy-dropdown-item" href="../components/sparrow/icons.html"> Icons</a><a class=" false fancy-dropdown-item" href="../components/sparrow/inline-player.html"> Inline player</a><a class=" false fancy-dropdown-item" href="../components/sparrow/lightbox.html"> Lightbox</a><a class=" false fancy-dropdown-item" href="../components/sparrow/masonry.html"> Masonry</a><a class=" false fancy-dropdown-item" href="../components/sparrow/parallax.html"> Parallax</a><a class=" false fancy-dropdown-item" href="../components/sparrow/progressbar.html"> Progressbar</a><a class=" false fancy-dropdown-item" href="../components/sparrow/spacing.html"> Spacing</a><a class=" false fancy-dropdown-item" href="../components/sparrow/typed-text.html"> Typed text</a><a class=" false fancy-dropdown-item" href="../components/sparrow/typography.html"> Typography</a><a class=" false fancy-dropdown-item" href="../components/sparrow/zanimation.html"> Zanimation</a>
-                  </div> {% endcomment %}
-                </div>
+                  </div> 
               </div>
               <div class="col-sm-auto pe-3 mb-3"><a class="fancy-dropdown-item text-white fw-black ls text-uppercase fs--1 mb-1" href="JavaScript:void(0)">Eksterni</a><a class=" false fancy-dropdown-item" href="../components/bootstrap/badges.html"> FIBA Assist</a><a class=" false fancy-dropdown-item" href="../components/bootstrap/buttons.html">Korisni linkovi</a>
               </div>
             </div>
           </div>
-        </li>
+        </li> {% endcomment %}
         <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">licence</span></a>
           <div class="fancy-dropdown-menu">
             <div class="row pb-4 pt-3">
@@ -90,17 +112,17 @@
             </div>
           </div>
         </li>
-        <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">dokumenta</span></a>
+        {% comment %} <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">dokumenta</span></a>
           <div class="fancy-dropdown-menu">
             <div class="row pb-4 pt-3">
               <div class="col-auto"><a class=" false fancy-dropdown-item" href="../documentation/getting-started.html">Formulari za trening</a><a class=" false fancy-dropdown-item" href="../documentation/file-structure.html">Formulari za lekarski pregled</a><a class=" false fancy-dropdown-item" href="../documentation/file-structure.html">Obrasci za članarine</a><a class=" false fancy-dropdown-item" href="../documentation/file-structure.html">Aplikacija</a>
               </div>
             </div>
           </div>
-        </li>
+        </li> {% endcomment %}
         {% comment %} <li class="fancynav-item"><a class="fancynav-link" href="../pages/contact.html"><span class="fancynav-link-content">obrasci / formulari</span></a></li> {% endcomment %}
-        <li class="fancynav-item"><a class="fancynav-link" href="../pages/contact.html"><span class="fancynav-link-content">faq</span></a></li>                  
-        <li class="fancynav-item"><a class="fancynav-link" href="../pages/contact.html"><span class="fancynav-link-content">kontakt</span></a></li>                  
+        <li class="fancynav-item"><a class="fancynav-link" href="{% url 'onama:faq' %}"><span class="fancynav-link-content">faq</span></a></li>                  
+        <li class="fancynav-item"><a class="fancynav-link" href="{% url 'onama:kontakt' %}"><span class="fancynav-link-content">kontakt</span></a></li>                  
 
       </ul>
     </div>

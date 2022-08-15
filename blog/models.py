@@ -6,6 +6,9 @@ from django.urls import reverse
 from django.utils import timezone
 from taggit.managers import TaggableManager
 
+from imagekit.models import ImageSpecField
+from imagekit.processors import Resize, ResizeToFill, Thumbnail, ResizeToCover, SmartResize, ResizeToFit, ResizeCanvas
+
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -33,6 +36,15 @@ class Post(models.Model):
     published = PublishedManager() # Our custom manager.
 
     image = models.ImageField(upload_to='featured_image/%Y/%m/%d/')
+
+    image_resize = ImageSpecField(
+        source='image', 
+        processors=[Resize(508,508)],
+        format='JPEG',
+        options={'quality': 60},
+    )
+
+
 
     tags = TaggableManager()
 

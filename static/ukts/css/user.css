@@ -172,6 +172,16 @@
   color: #023774
 }
 
+
+
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+
+
 /* .bg-holder.search {
   width: 50%;
   background-position: center center;

@@ -51,7 +51,13 @@ INSTALLED_APPS = [
     'magazin.apps.MagazinConfig',
     'klinike.apps.KlinikeConfig',
     'edukacija.apps.EdukacijaConfig',
+    'onama.apps.OnamaConfig',
+    'imagekit',
+    'zatrenere.apps.ZatrenereConfig',
+    'phonenumber_field',
+    'django_countries',
 ]
+
 
 TAGGIT_CASE_INSENSITIVE = True
 
@@ -184,7 +190,10 @@ MEDIA_ROOT = BASE_DIR /"media/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
 #SMTP Configuration
+DEFAULT_FROM_EMAIL = 'stvel075@gmail.com'
+
 EMAIL_Backend = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

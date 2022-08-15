@@ -1,0 +1,127 @@
+{% extends 'ukts/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    {% include 'ukts/partials/_navbar.html' %}
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main min-vh-100" id="top">
+
+
+        <!-- ============================================-->
+        <!-- Preloader ==================================-->
+        <div class="preloader" id="preloader">
+          <div class="loader">
+            <div class="line-scale-pulse-out-rapid">
+              <div> </div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div> </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================-->
+        <!-- End of Preloader ===========================-->
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="text-center" id="defaultMembers">
+
+            <div class="container">
+              <div class="row flex-center">
+
+                <div class="col-lg-7 col-xl-6">
+                  <h2 class="fs-3 fs-sm-4 text-decoration-underline mb-3">Upravni Odbor</h2>
+                  <p class="text-500 fst-italic">A passionate group of experienced designers, developers and programmers motivated to continually reach goals and tackle new challenges</p>
+                </div>
+                <div class="w-100"></div>
+
+
+                {% for clan in clanovi %}
+                {% if clan.funkcija == "Predsednik" or clan.funkcija == "Generalni sekretar" %}                
+                              
+
+                <div class="col-lg-6 pt-5 pt-xl-7" data-zanim-timeline='{"delay":0}' data-zanim-trigger="scroll">
+                  <div class="hoverbox"><img class="rounded img-fluid" src="{{ clan.slika_velika.url }}" alt="" data-zanim-xs='{"animation":"zoom-in","delay":0.1}' />
+                    <div class="hoverbox-content p-3 d-flex align-items-end justify-content-end">
+                        {% if clan.linkedin %}  
+                        <a class="text-white" href="{{ clan.linkedin }}"><span class="fs-1 ms-2 fab fa-linkedin"></span></a>
+                        {% elif clan.twitter %}                        
+                        <a class="text-white" href="{{ clan.twitter }}"><span class="fs-1 ms-2 fab fa-twitter"></span></a>
+                        {% elif clan.facebook %} 
+                        <a class="text-white" href="{{ clan.facebook }}"><span class="fs-1 ms-2 fab fa-facebook"></span></a>
+                        {% elif clan.instagram %} 
+                        <a class="text-white" href="{{ clan.instagram }}"><span class="fs-1 ms-2 fab fa-instagram"></span></a>                        
+                        {% endif %}
+                    </div>
+                  </div>
+                  <div class="overflow-hidden"><a href="../pages/profile.html">
+                      <h5 class="fs-0 fw-bold mt-3 mb-1" data-zanim-xs='{"from":{"y":45},"delay":0.2}'>{{ clan.ime }}</h5>
+                    </a></div>
+                  <div class="overflow-hidden">
+                    <h6 class="text-700 fw-normal text-uppercase ls" data-zanim-xs='{"from":{"y":22},"delay":0.3}'>{{ clan.funkcija }}</h6>
+                  </div>
+                </div>
+
+                
+                {% endif %}
+                {% endfor %}
+
+
+                <div class="w-100"></div>
+
+                {% for clan in clanovi %}
+                {% if clan.funkcija == "Član upravnog odbora" %}                
+
+                <div class="col-sm-6 col-lg-3 pt-5 pt-xl-7" data-zanim-timeline='{"delay":0.2}' data-zanim-trigger="scroll">
+                    <div class="hoverbox"><img class="rounded img-fluid" src="{{ clan.slika_mala.url }}" alt="" data-zanim-xs='{"animation":"zoom-in","delay":0.1}' />
+                      <div class="hoverbox-content p-3 d-flex align-items-end justify-content-end">
+                        {% if clan.linkedin %}  
+                        <a class="text-white" href="{{ clan.linkedin }}"><span class="fs-1 ms-2 fab fa-linkedin"></span></a>
+                        {% elif clan.twitter %}                        
+                        <a class="text-white" href="{{ clan.twitter }}"><span class="fs-1 ms-2 fab fa-twitter"></span></a>
+                        {% elif clan.facebook %} 
+                        <a class="text-white" href="{{ clan.facebook }}"><span class="fs-1 ms-2 fab fa-facebook"></span></a>
+                        {% elif clan.instagram %} 
+                        <a class="text-white" href="{{ clan.instagram }}"><span class="fs-1 ms-2 fab fa-instagram"></span></a>                        
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="overflow-hidden"><a href="../pages/profile.html">
+                        <h5 class="fs-0 fw-bold mt-3 mb-1" data-zanim-xs='{"from":{"y":45},"delay":0.2}'>{{ clan.ime }}</h5>
+                      </a></div>
+                    <div class="overflow-hidden">
+                      <h6 class="text-700 fw-normal text-uppercase ls" data-zanim-xs='{"from":{"y":22},"delay":0.3}'>{{ clan.funkcija }}</h6>
+                    </div>
+                </div>
+
+                {% endif %}
+                {% endfor %}
+
+
+              </div>
+            </div>
+            <!-- end of .container-->
+    
+          </section>
+          <!-- <section> close ============================-->
+          <!-- ============================================-->
+    
+        </main>
+        <!-- ===============================================-->
+        <!--    End of Main Content-->
+        <!-- ===============================================-->
+
+
+    {% include 'ukts/partials/_footer.html' %}
+
+
+
+{% endblock content %} 
