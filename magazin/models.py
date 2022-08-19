@@ -20,8 +20,8 @@ from django.db import models
 
 class Files(models.Model):
     class Meta:
-        verbose_name = 'File'
-        verbose_name_plural = 'Files'
+        verbose_name = 'Magazin Izdanje'
+        verbose_name_plural = 'Magazin Izdanja'
 
     name = models.CharField(max_length=100)
     broj = models.CharField(max_length=100)

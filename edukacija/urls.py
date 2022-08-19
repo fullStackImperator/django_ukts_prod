@@ -11,6 +11,11 @@ urlpatterns = [
     # login
 
     path('knjige/', views.KnjigeView.as_view(), name="knjige"),
+    path('fiba-assist/', views.FibaAssistView.as_view(), name="fiba_assist"),
+    path('strucne-teme/', views.StrucneTemeView.as_view(), name="strucne_teme"),
+    # path('linkovi/', views.LinkoviView.as_view(), name="linkovi"),
+    path('linkovi/', views.linkovi, name="linkovi"),
+
     # path('klinika-bcb/', views.KlinikaView.as_view(), name="klinika_bcb"),
     # path('trenerski-dani/', views.TrenerskiDaniView.as_view(), name="trenerski_dani"),
 

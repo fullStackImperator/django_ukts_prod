@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav class="fancynavbar fancynavbar-expand-lg" data-zanim-lg='{"from":{"opacity":1,"x":70},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.3}' data-zanim-xs='{"from":{"opacity":1,"y":-37},"to":{"opacity":1,"y":0},"ease":"CubicBezier","duration":0.8,"delay":0.3}' data-zanim-trigger="scroll" data-exclusive="true">
-    <div class="fancynavbar-togglerbar" data-onscroll-fade-in="data-onscroll-fade-in"><a class="fancynavbar-brand" href=""><img class="fancynavbar-brand-img" src="{% static 'ukts/img/ukts_logo_tr.png' %}" alt="" width="30" height="30" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll" />
+    <div class="fancynavbar-togglerbar bg-primary" data-onscroll-fade-in="data-onscroll-fade-in"><a class="fancynavbar-brand" href="{% url 'blog:post_list' %}"><img class="fancynavbar-brand-img" src="{% static 'ukts/img/ukts_logo_tr.png' %}" alt="" width="30" height="30" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll" />
 
         <!--You can use icon or text logo as well-->
         <!--<span class='fab fa-superpowers fs-3'></span>-->
@@ -68,7 +68,7 @@
         <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">trenerski dani</span></a>
           <div class="fancy-dropdown-menu">
             <div class="row pb-4 pt-3">
-              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'klinike:klinika_bcb' %}">Video</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_bcb' %}">Galerija</a><a class=" false fancy-dropdown-item" href="{% url 'magazin:magazin_brojevi' %}">Aplikacija</a>
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'klinike:trenerski_dani' %}">Video</a><a class=" false fancy-dropdown-item" href="{% url 'klinike:galerija_td' %}">Galerija</a>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@
         <li class="fancynav-item fancy-dropdown"><a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">edukacija</span></a>
           <div class="fancy-dropdown-menu">
             <div class="row pb-4 pt-3">
-              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}">Knjige</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}">Stručne teme</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}">FIBA Assist</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}">Korisni linkovi</a>
+              <div class="col-auto"><a class=" false fancy-dropdown-item" href="{% url 'edukacija:knjige' %}">Knjige</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:strucne_teme' %}">Stručne teme</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:fiba_assist' %}">FIBA Assist</a><a class=" false fancy-dropdown-item" href="{% url 'edukacija:linkovi' %}">Korisni linkovi</a>
               </div>
             </div>
           </div>

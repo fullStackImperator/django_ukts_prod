@@ -4259,12 +4259,12 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #045bc1;
-  border-color: #045bc1;
+  background-color: #041c36;
+  border-color: #041c36;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #034da4;
+  background-color: #435b75;
   border-color: #03499a;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
@@ -8152,6 +8152,18 @@ textarea.form-control-lg {
 
 .min-vh-50 {
   min-height: 50vh !important;
+}
+
+.min-vh-60 {
+  min-height: 60vh !important;
+}
+
+.min-vh-65 {
+  min-height: 65vh !important;
+}
+
+.min-vh-70 {
+  min-height: 70vh !important;
 }
 
 .min-vh-75 {

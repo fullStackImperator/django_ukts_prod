@@ -1,0 +1,132 @@
+{% extends 'ukts/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+{% include 'ukts/partials/_navbar.html' %}
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main min-vh-100" id="top">
+
+
+        <!-- ============================================-->
+        <!-- Preloader ==================================-->
+        <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="line-scale-pulse-out-rapid">
+            <div> </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div> </div>
+            </div>
+        </div>
+        </div>
+        <!-- ============================================-->
+        <!-- End of Preloader ===========================-->
+
+
+        
+        
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+            <section class="py-0">
+  
+                <div class="container-fluid">
+                  <div class="row">
+
+                    <div class="col-lg-6 px-0 order-lg-2">
+                      <div class="sticky-top vh-lg-100 py-9">
+                        <div class="bg-holder" style="background-image:url('../../static/ukts/img/Assist26.png');" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'>
+                        </div>
+                        <!--/.bg-holder-->
+        
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 py-6">
+                      <div class="row h-100 flex-center">
+                        <div class="col-lg-10">
+
+                          <div class="mb-5">
+                            <div class="overflow-hidden">
+                              <h1 class="text-decoration-underline fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">FIBA Assist</h1>
+                              <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>  Stručni Magazin &nbsp; </h5>
+                            </div>
+                          </div>
+ 
+
+                        {% comment %} <div class="container"> {% endcomment %}
+                          {% comment %} <div class="row border-bottom">
+                            <div class="col-7">
+                              <div class="row">
+                                <div class="col-auto"><a href="#!"><span class="fas fa-file-download fs-0 fs-md-1 fs-lg-2 invisible"></span></a></div>
+                                <div class="col">
+                                  <h6 class="fs--1 ls text-uppercase">item</h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-5">
+                              <div class="row">
+                                <div class="col-6 text-center">
+                                  <h6 class="fs--1 ls text-uppercase">qty.</h6>
+                                </div>
+                                <div class="col-6 text-end">
+                                  <h6 class="fs--1 ls text-uppercase">Price</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div> {% endcomment %}
+
+
+                          {% for assist in assists %}
+
+                          <div class="row align-items-center py-3 border-bottom">
+                            
+                            <div class="col-sm-12">
+                              <div class="row align-items-center">
+                                <div class="col-auto"><a href="{{ assist.pdf.url }}"><span class="fas fa-file-download text-300 fs-0 fs-md-1 fs-lg-2"></span></a></div>
+                                <div class="col">
+                                  <div class="row g-0 align-items-center">
+                                    <div class="col-auto"><img class="me-3" src="{{ assist.cover.url }}" alt="" width="50" /></div>
+                                    <div class="col-8 mt-2">
+                                      <a class="text-black" href="{{ assist.pdf.url }}">
+                                        <h5 class="fw-bold mb-0">FIBA Assist Magazin Broj  {{ assist.broj }}</h5>
+                                      </a></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                         {% comment %} </div> {% endcomment %}
+
+                         {% endfor %} 
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- end of .container-->
+        
+              </section>
+              <!-- <section> close ============================-->
+              <!-- ============================================-->
+        
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+    
+    
+    {% include 'ukts/partials/_footer.html' %}
+    
+    
+        
+{% endblock content %} 

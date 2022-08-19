@@ -46,29 +46,34 @@
             <ul class="nav font-sans-serif mb-2" data-filter-nav="data-filter-nav">
               <li class="nav-item"><a class="nav-link isotope-nav active" href="#!" data-filter="*">sve</a></li>
 
-              {% for foto in fotos %}
-              {% if foto.tip == "td" %}  
-              {% regroup object_list|dictsortreversed:"godina" by godina as godina_list %}
-               
+              {% comment %} {% regroup object_list|dictsortreversed:"godina" by godina as godina_list %}
               {% for godina in godina_list %}
-              {% comment %} {% if godina.list.tip == "td" %}  {% endcomment %}
-                {% comment %} {% if foto.godina.unique %} {% endcomment %}
+                 
                <li class="nav-item"><a class="nav-link isotope-nav" href="#!" data-filter=".a{{ godina.grouper }}">{{ godina.grouper }}</a></li>
-               {% comment %} {% endif %} {% endcomment %}
+
+              {% endfor %} {% endcomment %}
+
+              {% for trenerski_dan in trenerski_dani %}
+                 
+               <li class="nav-item"><a class="nav-link isotope-nav" href="#!" data-filter=".a{{ trenerski_dan.godina }}">{{ trenerski_dan.godina }}</a></li>
+
               {% endfor %}
-              {% endif %}
-              {% endfor %}
-    
+
+
             </ul>
 
             <div class="row g-3 mt-2" id="portfolio-gallery" data-zanim-timeline="{}" data-zanim-trigger="scroll" data-isotope='{"layoutMode":"packery"}'>
               
-                     
-            {% for foto in fotos %}
-            {% if foto.tip == "td" %}  
-              <div class="col-6 col-md-3 isotope-item a{{ foto.godina }}"><a href="#!" data-bp="{{ foto.slika.url }}" data-bigpicture='{"gallery":"#portfolio-gallery"}' data-caption="{{ foto.naslov }}"><img class="rounded w-100 fit-cover" src="{{ foto.slika.url }}" alt="" data-zanim-xs='{"animation":"zoom-in","delay":0.1}' /></a></div>
-              {% endif %}
-            {% endfor %}
+              {% for slika in slike %}
+            
+              <div class="col-6 col-md-3 isotope-item a{{ slika.trenerski_dan.godina }}"><a href="#!" data-bp="{{ slika.slika.url }}" data-bigpicture='{"gallery":"#portfolio-gallery"}' data-caption=""><img class="rounded w-100 fit-cover" src="{{ slika.slika.url }}" alt="" data-zanim-xs='{"animation":"zoom-in","delay":0.1}' /></a></div>
+            
+                {% empty %}
+                <h3> No photos ... </h3>
+              {% endfor %}
+
+  
+
             </div>
 
            </div>

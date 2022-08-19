@@ -17,7 +17,7 @@
         </a>
       </li> {% endcomment %}
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{% url 'treneri:treneri_list' %}">
           <span class="menu-title">Dashboard</span>
           <i class="mdi mdi-home menu-icon"></i>
         </a>
@@ -41,11 +41,19 @@
         </a>
       </li> {% endcomment %}
       <li class="nav-item">
-        <a class="nav-link" href="pages/charts/chartjs.html">
-          <span class="menu-title">Analitika</span>
-          <i class="mdi mdi-chart-bar menu-icon"></i>
+        <a class="nav-link" href="{% url 'treneri:bcb_upload' %}">
+          <span class="menu-title">BCB Upload Slika</span>
+          <i class="mdi mdi-image-multiple menu-icon"></i>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'treneri:td_upload' %}">
+          <span class="menu-title">TD Upload Slika</span>
+          <i class="mdi mdi-image-multiple menu-icon"></i>
+        </a>
+      </li>
+
       <div class="border-bottom"></div>
 
     </ul>

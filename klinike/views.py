@@ -2,8 +2,8 @@ from django.contrib import messages
 from django.shortcuts import redirect, reverse, render
 from django.urls import reverse_lazy
 from django.views import generic
-from .models import Klinike, Photo
-from .forms import UploadForm
+from .models import Klinike, TrenerskiDani, BCB, SlikeBCB, TD, SlikeTD
+
 
 
 # from urllib import urlopen, unquote
@@ -23,15 +23,13 @@ class KlinikaView(generic.ListView):
 	# 		query = urlparse.parse_qs(url_data.query)
 	# 		context['videoID'] = query["v"][0]
 	# 		return context
-	
-
 
 	def get_queryset(self):
-		return Klinike.objects.order_by('-id')
+		return Klinike.objects.order_by('-godina')
 
 
 class TrenerskiDaniView(generic.ListView):
-	model = Klinike
+	model = TrenerskiDani
 	template_name = 'ukts/klinike/klinike_td.html'
 	# template_name = 'magazin_list.html'
 	context_object_name = 'klinike'
@@ -39,7 +37,7 @@ class TrenerskiDaniView(generic.ListView):
 
 
 	def get_queryset(self):
-		return Klinike.objects.order_by('-id')
+		return TrenerskiDani.objects.order_by('-godina')
 
 
 
@@ -51,81 +49,84 @@ class TrenerskiDaniView(generic.ListView):
 # qs = parse_qs(urlparse(youtube_watchurl).query)
 # print 'parse_qs : ', qs
 
-class GalerijaBCBView(generic.ListView):
-	model = Photo
-	template_name = 'ukts/klinike/galerija_bcb.html'
-	# template_name = 'magazin_list.html'
-	context_object_name = 'fotos'
-	# paginate_by = 4
 
 
-	def get_queryset(self):
-		return Photo.objects.order_by('-id')
+###--#-#-#-#-#-#-#-#-#-#-# REAL ONE !!!!!!! 
+# class GalerijaBCBView(generic.ListView):
+# 	model = Photo
+# 	template_name = 'ukts/klinike/galerija_bcb.html'
+# 	# template_name = 'magazin_list.html'
+# 	context_object_name = 'fotos'
+# 	# paginate_by = 4
 
-class GalerijaTDView(generic.ListView):
-	model = Photo
-	template_name = 'ukts/klinike/galerija_td.html'
-	# template_name = 'magazin_list.html'
-	context_object_name = 'fotos'
-	# paginate_by = 4
+# 	def get_queryset(self):
+# 		return Photo.objects.order_by('-id')
+
+# class GalerijaBCBView(generic.ListView):
+# 	model = PictureBCB
+# 	template_name = 'ukts/klinike/galerija_bcb.html'
+# 	# template_name = 'magazin_list.html'
+# 	context_object_name = 'fotos'
+# 	# paginate_by = 4
 
 
-	def get_queryset(self):
-		return Photo.objects.order_by('-id')
+# 	def get_queryset(self):
+# 		return PictureBCB.objects.order_by('-id')
 
 
 
 
-class IstorijaBCBView(generic.ListView):
-	model = Klinike
+# class GalerijaTDView(generic.ListView):
+# 	model = Photo
+# 	template_name = 'ukts/klinike/galerija_td.html'
+# 	# template_name = 'magazin_list.html'
+# 	context_object_name = 'fotos'
+# 	# paginate_by = 4
+
+
+# 	def get_queryset(self):
+# 		return Photo.objects.order_by('-id')
+
+
+
+
+# class IstorijaBCBView(generic.ListView):
+# 	model = Klinike
 	
-	extra_context={'bcb': model.objects.filter(tip="bcb")}
+# 	extra_context={'bcb': model.objects.filter(tip="bcb")}
 
-	template_name = 'ukts/klinike/istorija_bcb.html'
-	# template_name = 'magazin_list.html'
-	context_object_name = 'klinike'
-	# paginate_by = 4
-
-
-
-class IstorijaTDView(generic.ListView):
-	model = Klinike
-
-	extra_context={'broj_td': Klinike.objects.filter(tip="td").count(), 'broj_td_predavanja': model.objects.filter(tip="td").count()*4}
-
-	template_name = 'ukts/klinike/istorija_td.html'
-	# template_name = 'magazin_list.html'
-	context_object_name = 'klinike'
-	# paginate_by = 4
+# 	template_name = 'ukts/klinike/istorija_bcb.html'
+# 	# template_name = 'magazin_list.html'
+# 	context_object_name = 'klinike'
+# 	# paginate_by = 4
 
 
+
+# class IstorijaTDView(generic.ListView):
+# 	model = Klinike
+
+# 	extra_context={'broj_td': Klinike.objects.filter(tip="td").count(), 'broj_td_predavanja': model.objects.filter(tip="td").count()*4}
+
+# 	template_name = 'ukts/klinike/istorija_td.html'
+# 	# template_name = 'magazin_list.html'
+# 	context_object_name = 'klinike'
+# 	# paginate_by = 4
 
 
 
 
-def addPhotoBCB(request):
 
-	form_class = UploadForm
-	form = form_class(request.POST or None)
+def GalerijaBCBView(request):
+	klinike = BCB.objects.all()
+	slike = SlikeBCB.objects.all()
+	context = {'klinike': klinike, 'slike': slike}
+	return render(request, 'ukts/klinike/galerija_bcb.html', context)
 
-	if request.method == 'POST':
-		messages.success(request, "TEST")
-		form = UploadForm(request.POST)
-		images = request.FILES.getlist('images')
-		
-		# if form.is_valid():
-		for image in images:
-			slika = Photo.objects.create(
-				tip='bcb',
-				godina=request.POST.get('godina'),
-				slika=image,
-				naslov='',
-			)
-		messages.success(request, "Uspesno dodate slike")
-		# else: 
-		# 	form = UploadForm()
-		
-		return redirect(reverse("klinike:galerija_bcb"))
-	
-		
-	return render(request, 'ukts/klinike/galerija_bcb_upload.html', {'form': form})
+
+
+def GalerijaTDView(request):
+	trenerski_dani = TD.objects.all()
+	slike = SlikeTD.objects.all()
+	context = {'trenerski_dani': trenerski_dani, 'slike': slike}
+	return render(request, 'ukts/klinike/galerija_td.html', context)
+

@@ -1,5 +1,8 @@
 from django.db import models
 
+from imagekit.models import ImageSpecField
+from imagekit.processors import Resize, ResizeToFill, Thumbnail, ResizeToCover, SmartResize, ResizeToFit, ResizeCanvas
+
 # Create your models here.
 
 class Klub(models.Model):
@@ -29,6 +32,13 @@ class Trener(models.Model):
     datum_rodjenja = models.DateField()
     slika = models.ImageField(upload_to='treneri_profil', default='default.png', blank=True, null=True)
     
+    slika_resize = ImageSpecField(
+        source='slika', 
+        processors=[ResizeToFill(50, 70)],
+        format='JPEG',
+        options={'quality': 60},
+    )
+
     # uplata = da/ne 
 
     def __str__(self):

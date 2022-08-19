@@ -6,7 +6,19 @@
 
             <div class="container-fluid">
               <div class="row h-100 border-bottom">
-                <div class="col-lg-6 px-0 order-lg-2" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
+                
+
+                <div class="col-lg-6 px-0 order-lg-2 min-vh-50 min-vh-lg-100">
+                  <div class="position-relative h-100" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
+                    <div class="bg-holder" style="background-image:url('static/ukts/img/klinike/pesic_cover.png');">
+                      <div class="yt-video" data-youtube-embed='{"videoId":"iJURa5JVBqU","startSeconds":"10","endSeconds":"34","attrs":{"data-zanim-trigger":"scroll","data-zanim-lg":{"animation":"zoom-out","delay":0}}}'></div>
+                    </div>
+                    <!--/.bg-holder-->
+    
+                  </div>
+                </div>
+
+                {% comment %} <div class="col-lg-6 px-0 order-lg-2" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
                   <div class="swiper-container theme-slider swiper-theme" data-swiper='{"autoplay":{"delay":5000,"disableOnInteraction":false},"loop":true,"effect":"fade","pagination":{"el":".swiper-pagination","clickable":true,"type":"bullets"}}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide min-vh-lg-100 py-9">
@@ -34,7 +46,8 @@
                       <div class="swiper-button-prev ms-md-3"> </div>
                     </div>
                   </div>
-                </div>
+                </div> {% endcomment %}
+
                 <div class="col-lg-6 bg-white py-7 py-md-8">
                   <div class="row flex-center h-100">
                     <div class="col-lg-10 text-black text-center text-lg-start" data-zanim-timeline="{}" data-zanim-trigger="scroll">
@@ -43,18 +56,18 @@
                         {% comment %} <h4 class="fw-normal ls text-bg-primary" data-zanim-xs='{"delay":0.1}'>  Udruzenje &nbsp;Kosarkaskih &nbsp;Trenera &nbsp;Srbije</h4> {% endcomment %}
                       </div>
                       <div class="overflow-hidden">
-                        <img class="rounded img-fluid" width="370" height="500" src="{% static 'ukts/img/logo/ukts_logo.png' %}" alt="" />
+                        <img class="rounded img-fluid" width="370" height="500" src="{% static 'ukts/img/logo/ukts_logo_1.png' %}" alt="" />
                         {% comment %} <img class="shadow-lg rounded img-fluid" src="{% static 'ukts/img/logo/ukts_logo.png' %}" alt="" /> {% endcomment %}
                         {% comment %} <h1 class="display-3 fs-5 fs-sm-6" id="sc" data-zanim-xs='{"delay":0.2}'><span class="text-decoration-underline">UKTS</span><br /><span class="fw-light">creative</span></h1> {% endcomment %}
                       </div>
                     </br>
-                      <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>  Udruzenje &nbsp;Kosarkaskih &nbsp;Trenera &nbsp;Srbije</h5>
+                      <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>  Udruženje &nbsp;Košarkaških &nbsp;Trenera &nbsp;Srbije</h5>
     
-                      <div class="overflow-hidden">
+                      <div class="overflow-hidden mb-4">
                         {% comment %} <p class="text-900 fs-0 mt-3 mt-md-5 text-upper" data-zanim-xs='{"delay":0.3}'> Edukacija preko 1.600 članova<br />Beogradska Kosarkaska Klinika (BCB)<br />Magazin TRENER</p> {% endcomment %}
-                        <h6 class="fw-bold overflow-hidden text-upper" data-zanim-xs='{"delay":0.3}'>Naši zadatci:<span class="fw-bold ms-1 text-upper" data-typed-text='["Edukacija preko 1.600 članova","Beogradska Kosarkaska Klinika","Trenerski Dani Borivoje Cenić","Magazin TRENER"]'></span></h6>
+                        {% comment %} <h6 class="fw-bold overflow-hidden text-upper" data-zanim-xs='{"delay":0.3}'>Naši zadatci:<span class="fw-bold ms-1 text-upper" data-typed-text='["Edukacija preko 1.600 članova","Beogradska Kosarkaska Klinika","Trenerski Dani Borivoje Cenić","Magazin TRENER"]'></span></h6> {% endcomment %}
 
-                        <p class="text-900 fs-0 mt-3 mt-md-5 text-upper" data-zanim-xs='{"delay":0.3}'> Edukacija preko 1.600 trenera<br />Beogradska Kosarkaska Klinika (BCB)<br />Magazin TRENER</p>
+                        {% comment %} <p class="text-900 fs-0 mt-3 mt-md-5 text-upper" data-zanim-xs='{"delay":0.3}'> Preko 1.600 članova<br /> Edukujemo trenere<br/> Razvijamo košarku </p> {% endcomment %}
                       </div>
                       <div class="overflow-hidden">
                         <div class="d-lg-flex align-items-center fw-bold ls mt-3 mt-md-5 text-uppercase" data-zanim-xs='{"delay":0.4}'>
