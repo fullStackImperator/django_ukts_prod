@@ -21,6 +21,11 @@ from django.urls import include, path
 
 from blog.sitemaps import PostSitemap
 
+from django.views.generic.base import RedirectView
+
+favicon_view = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
+
+
 sitemaps = {
     'posts': PostSitemap,
 }
