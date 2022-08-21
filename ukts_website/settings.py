@@ -99,6 +99,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ukts_website.wsgi.application'
 
 
+CSRF_COOKIE_DOMAIN = None
+
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
