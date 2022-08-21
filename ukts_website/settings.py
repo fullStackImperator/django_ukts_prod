@@ -199,6 +199,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # S3 configuration
 AWS_QUERYSTRING_AUTH = False
+AWS_DEFAULT_ACL = 'public-read'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
