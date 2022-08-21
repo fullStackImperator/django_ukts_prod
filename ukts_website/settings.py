@@ -101,6 +101,10 @@ WSGI_APPLICATION = 'ukts_website.wsgi.application'
 
 CSRF_COOKIE_DOMAIN = None
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://ukts-website.herokuapp.com'
+]
+
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
