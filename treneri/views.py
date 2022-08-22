@@ -22,7 +22,7 @@ from django.core import serializers
 
 # Create your views here.
 
-@login_required
+# @login_required
 def treneri_list(request):
 	treneri = Trener.objects.all()
 	
@@ -33,7 +33,7 @@ def treneri_list(request):
 	context = {'treneri_list' : treneri} #, 'page_obj':page_obj}
 	return render(request, "treneri/treneri_list.html", context)
 
-@login_required
+# @login_required
 def treneri_form(request, id=0):
 	if request.method == "GET":
 		if id == 0:
@@ -54,7 +54,7 @@ def treneri_form(request, id=0):
 			form.save()
 		return redirect('/treneri/list')
 
-@login_required
+# @login_required
 def treneri_delete(request, id):
 	trener = Trener.objects.get(pk=id)
 	if request.method =="POST":
