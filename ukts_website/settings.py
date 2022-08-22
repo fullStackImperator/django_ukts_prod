@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-98li_w!@*l#he&17&r@g&p16=h^lao8k+b-m$9$($+o9koui!s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #True
+DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.1.2', '127.0.0.1', 'localhost']
 
@@ -191,22 +191,23 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR /"media/"
 
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# # S3 configuration
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# AWS_QUERYSTRING_AUTH = False
+# AWS_DEFAULT_ACL = 'public-read'
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# AWS_S3_ACCESS_KEY_ID = 'AKIAW5FRUHHA72EAPMOY'
+# AWS_S3_SECRET_ACCESS_KEY = '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'
+
+# AWS_STORAGE_BUCKET_NAME = 'ukts-demo'
+
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
-# S3 configuration
-AWS_QUERYSTRING_AUTH = False
-AWS_DEFAULT_ACL = 'public-read'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-AWS_S3_ACCESS_KEY_ID = 'AKIAW5FRUHHA72EAPMOY'
-AWS_S3_SECRET_ACCESS_KEY = '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'
-
-AWS_STORAGE_BUCKET_NAME = 'ukts-demo'
 
 
 #SMTP Configuration
