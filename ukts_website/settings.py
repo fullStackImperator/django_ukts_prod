@@ -148,7 +148,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 LOGIN_REDIRECT_URL = 'treneri:treneri_list' 
-LOGIN_URL = 'login:login'
+LOGIN_URL = 'account:login'
 # LOGOUT_URL = 'post_list'
 LOGOUT_REDIRECT_URL = 'blog:post_list'
 
