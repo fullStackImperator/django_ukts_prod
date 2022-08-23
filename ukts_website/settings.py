@@ -191,18 +191,16 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR /"media/"
 
 
-# S3 configuration
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# # S3 configuration
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_QUERYSTRING_AUTH = False
-AWS_DEFAULT_ACL = 'public-read'
+# AWS_QUERYSTRING_AUTH = False
+# AWS_DEFAULT_ACL = 'public-read'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AWS_S3_ACCESS_KEY_ID = 'AKIAW5FRUHHA72EAPMOY'
-AWS_S3_SECRET_ACCESS_KEY = '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'
 
-AWS_STORAGE_BUCKET_NAME = 'ukts-demo'
+# AWS_STORAGE_BUCKET_NAME = 'ukts-demo'
 
 
 
