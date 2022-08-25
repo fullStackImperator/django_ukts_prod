@@ -1,0 +1,58 @@
+{% extends 'ukts/treneri/treneri_base.html' %}
+{% comment %} {% extends 'treneri/baseTreneri.html' %} {% endcomment %}
+{% load crispy_forms_tags %}
+
+
+{% block dashboard %}
+
+      <div class="row justify-content-center mb-3">
+        <div class="col-md-6">
+        <h4 class="">Dodaj Slike Košarkaška Klinika</h4>
+        <p class=""> Mozete dodati vise slika od jednom </p>
+        </div>
+      </div>
+
+      <form action="" method="post" enctype="multipart/form-data" class="forms-sample">
+        {% csrf_token %}
+
+        <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group mb-4 mt-3">
+                {% comment %} {{form.ime|as_crispy_field }} {% endcomment %}
+                <label>Izaberi Kliniku</label>
+                <select name="godina" class="form-control">
+                    <option value="none">Izaberite godinu ...</option>
+                
+                    {% for klinika in klinike %}
+                    <option value="{{klinika.id}}">{{klinika.godina}}</option>
+
+                    {% endfor %}
+                </select>
+                {% comment %} <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Unesite godinu"> {% endcomment %}
+            </div>
+
+            <div class="form-group mb-4 mt-3">
+                <label>Ili kreiraj novu kliniku (samo godina u formatu "YYYY")</label>
+                <input type="text" name="godina_nova" class="form-control" placeholder="Unesi samo godinu u formatu YYYY !">
+            </div>
+
+            <div class="form-group mb-4 mt-3">
+                <label>Upload slika</label>
+                <input required name="slike" type="file" multiple class="form-control" placeholder="Upload slika">
+            </div>
+
+            <div class="overflow-hidden">
+              <div data-zanim-xs='{"delay":0.6}' data-zanim-trigger="scroll"><button type="submit" class="btn btn-outline-dark me-2">Submit</button></div>
+            </div>
+            
+
+ 
+        </div>
+ 
+        </div>
+      </form>
+
+
+
+
+{% endblock dashboard %}

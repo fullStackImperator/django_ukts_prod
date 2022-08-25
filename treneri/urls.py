@@ -22,5 +22,7 @@ urlpatterns = [
     path('search-trener/search/', views.search_results, name='search'), 
     path('search-trener/search/<pk>', views.trener_detail_view, name='detail'), 
 
+    
+    path('test/', views.TestView.as_view(), name='test'), 
 
 ]

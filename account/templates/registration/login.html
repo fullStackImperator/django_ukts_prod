@@ -1,38 +1,96 @@
-{% extends "baseAccount.html" %}
+{% extends 'ukts/base.html' %}
+{% load static %}
 
 
-{% block title %}Sign In{% endblock %}
+
 
 {% block content %}
 
-<form method="post" class="signin-form">
-	{% csrf_token %}
-	<div class="form-group mb-3">
-		<label class="label" for="username">Username</label>
-		{% comment %} {{form.username|as_crispy_field }} {% endcomment %}
-		<input type="text" name="username" class="form-control" placeholder="Username" required>
-	</div>
-	<div class="form-group mb-3">
-		<label class="label" for="password">Password</label>
-	<input name="password" type="password" class="form-control" placeholder="Password" required>
-	<input type="hidden" name="next" value="{{ next }}" />
-	</div>
-	<div class="form-group">
-		<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
-	</div>
-	<div class="form-group d-md-flex">
-		<div class="w-50 text-left">
-			<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
-				<input type="checkbox" checked>
-				<span class="checkmark"></span>
-			</label>
-		</div>
-		<div class="w-50 text-md-right">
-			<a href="#">Forgot Password</a>
-		</div>
-	</div>
-</form>
+    {% include 'ukts/partials/_navbar.html' %}
 
-{% comment %} <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p> {% endcomment %}
 
-{% endblock %}
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main min-vh-100" id="top">
+
+
+      <!-- ============================================-->
+      <!-- Preloader ==================================-->
+      <div class="preloader" id="preloader">
+        <div class="loader">
+          <div class="line-scale-pulse-out-rapid">
+            <div> </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div> </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================-->
+      <!-- End of Preloader ===========================-->
+
+ 
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="py-0">
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-6 px-0">
+                  <div class="sticky-top vh-lg-100 py-9">
+                    <div class="bg-holder" style="background-image:url('../../static/ukts/img/profili/saper.png');" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'>
+                    </div>
+                    <!--/.bg-holder-->
+    
+                  </div>
+                </div>
+
+                <div class="col-lg-6 py-6">
+                  <div class="row h-100 align-items-center justify-content-center">
+                    <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll">
+                      <h3 class="display-4 fs-2 mb-4">Administracija Trenera<br /> &amp; Upload Slika</h3>
+                      {% comment %} <h6 class="text-danger mt-3">Specially crafted for the people who care about design.</h6> {% endcomment %}
+                      
+                      
+                      <form method="post" class="signin-form">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label class="label" for="username">Username</label>
+                            {% comment %} {{form.username|as_crispy_field }} {% endcomment %}
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="label" for="password">Password</label>
+                        <input name="password" type="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                        </div>    
+
+                    </form>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of .container-->
+    
+          </section>
+          <!-- <section> close ============================-->
+          <!-- ============================================-->
+
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    {% include 'ukts/partials/_footer.html' %}
+
+    {% endblock content %} 

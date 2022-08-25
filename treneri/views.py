@@ -31,7 +31,7 @@ def treneri_list(request):
 	# page_obj=Paginator.get_page(paginator, page_number)
 
 	context = {'treneri_list' : treneri} #, 'page_obj':page_obj}
-	return render(request, "treneri/treneri_list.html", context)
+	return render(request, "ukts/treneri/treneri_list.html", context)
 
 # @login_required
 def treneri_form(request, id=0):
@@ -42,7 +42,7 @@ def treneri_form(request, id=0):
 			trener = Trener.objects.get(pk=id)
 			form = TreneriForm(instance=trener)
 		context = {'form' : form}
-		return render(request, "treneri/treneri_form.html", context)
+		return render(request, "ukts/treneri/treneri_form.html", context)
 	else:
 		if id == 0:
 			form = TreneriForm(request.POST, request.FILES)
@@ -94,7 +94,7 @@ def uploadBCBView(request):
 		# print('slika:', slika)
 
 	context = {'klinike': klinike}
-	return render(request,  "treneri/foto_upload_bcb.html", context)
+	return render(request,  "ukts/treneri/foto_upload_bcb.html", context)
 
 
 
@@ -126,7 +126,7 @@ def uploadTDView(request):
 		# print('slika:', slika)
 
 	context = {'trenerski_dani': trenerski_dani}
-	return render(request,  "treneri/foto_upload_td.html", context)
+	return render(request,  "ukts/treneri/foto_upload_td.html", context)
 
 
 
@@ -228,7 +228,11 @@ def search_results(request):
 
 
 
-
+class TestView(ListView):
+	model = Trener
+	template_name = 'ukts/treneri/treneri_base.html'
+	# template_name = 'magazin_list.html'
+	context_object_name = 'files'
 
 
 

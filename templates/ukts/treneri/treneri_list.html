@@ -1,0 +1,184 @@
+{% extends 'ukts/treneri/treneri_base.html' %}
+{% comment %} {% extends 'treneri/baseTreneri.html' %} {% endcomment %}
+{% load static %}
+
+
+{% block dashboard %}
+
+
+
+          <div class="row align-items-center">
+
+            <div class="col-7 d-sm-flex align-items-center justify-content-between mb-4">
+              {% comment %} <a href="#" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                  <i class="fas fa-download fa-sm text-white-50"></i> Download PDF</a> {% endcomment %}
+              <a href="{% url 'treneri:export_excel' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                  <i class="fas fa-download fa-sm text-white-50"></i> Download Excel</a>
+              <a href="{% url 'treneri:export_csv' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                  <i class="fas fa-download fa-sm text-white-50"></i> Download CSV</a>
+            </div>
+          </div>
+
+
+          <div class="row h-100 flex-center">
+            <div class="col-lg-10">
+
+              <div class="font-sans-serif">
+                <h1 class="mb-4 fw-normal">Lista <span class='fw-black'>Trenera</span></h1>
+                {% comment %} <h6 class="ls text-uppercase fw-bold mb-4">Pretraga svih članova UKTS</h6> {% endcomment %}
+                {% comment %} <p class="mb-4">Ukucajte ime u donje polje i nadjite trenera</p> {% endcomment %}
+              </div>
+
+              <form class="d-flex" method="post" id="search-form" autocomplete="off">
+                {% csrf_token %}
+
+                <div class="input-group mb-3">
+                  <input class="form-control bg-100 mb-5" id="search-input" type="text" placeholder="Trazi trenera ovde" aria-label="Ime trenera" aria-describedby="button-addon-interior" />
+                </div>
+
+              </form>
+
+              {% comment %} <div class="container " id="container"> {% endcomment %}
+
+
+                <div class="row border-bottom">
+      
+                  <div class="col-6">
+                    <div class="row align-items-center">
+                        {% comment %} <div class="col-auto"><a href="#!"><span class="fas fa-times fs-0 fs-md-1 fs-lg-2 invisible"></span></a></div> {% endcomment %}
+                        <div class="col">
+                          <h6 class="fs--1 ls text-uppercase">Trener</h6>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="row align-items-center">
+                      <div class="col-12 text-end">
+                        <h6 class="fs--1 ls text-uppercase text-end">Licenca</h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="row align-items-center">
+                      <div class="col-12 text-end">
+                        <h6 class="fs--1 ls text-uppercase text-end">Boja</h6>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <div id="rezultati"></div>
+
+
+                {% for trener in treneri_list %}
+
+                <div class="row align-items-center py-3 border-bottom">
+                            
+                  <div class="col-sm-12">
+                    <div class="row align-items-center">
+                      <div class="col">
+
+                        <div class="row g-0 align-items-center">
+                          {% comment %} <div class="col-12 mt-2"> {% endcomment %}
+                            <div class="col-6">
+                              <h5 class="fw-normal mb-0 alignleft">{{trener.ime}}</h5>
+                            </div>
+                            <div class="col-3">
+                              <h6 class="fs-0 fw-light mb-0 alignright">{{trener.licenca}}</h6>
+                            </div>
+                            <div class="col-3">
+                              <h6 class="fs-0 fw-light mb-0 alignright">{{trener.boja}}</h6>                          </div>
+                            </div>  
+                          {% comment %} </div> {% endcomment %}
+                        
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                {% endfor %}
+
+
+            </div>
+          </div>
+
+
+
+
+{% comment %} 
+          <div style="overflow-x:auto;">
+          <table >
+            <thead>
+              <tr >
+                <th>Ime</th>
+                <th>Telefon</th>
+                <th>Email</th>
+                <th>Klub</th>
+                <th>Region</th>
+                <th>Datum Rodjenja</th>
+                <th>
+                    <a href="{% url 'treneri:treneri_form' %}" class="btn btn-outline-light">
+                      <span class="fas fa-user-plus text-400 fs-0 fs-md-1 fs-lg-2"></span>  
+                    </a>
+                </th>
+              </tr>
+            </thead>
+            <tbody> 
+              
+              {% for trener in treneri_list %}
+              <tr >
+                  <td >{{trener.ime}}</td>
+                  <td >{{trener.telefon}}</td>
+                  <td >{{trener.email}}</td>
+                  <td >{{trener.klub}}</td>
+                  <td >{{trener.region}}</td>
+                  <td >{{trener.datum_rodjenja}}</td>
+                  <td >
+                      <a href="{% url 'treneri:treneri_update' trener.id %}" class="btn px-0">
+                          <i class="fas fa-user-edit fa-lg"></i>
+                      </a>
+                      <form action="{% url 'treneri:treneri_delete' trener.id %}" method="post" class="d-inline">
+                          {% csrf_token %}
+                          <button type="submit" class="btn">
+                              <i class="fas fa-times mdi-lg text-danger"></i>
+                          </button>
+
+                      </form>
+                  </td>
+              </tr>
+              {% endfor %}
+      
+            </tbody>
+          </table>
+          </div>
+
+        </div>
+         {% endcomment %}
+        <br>
+        {% comment %} <div class="col-lg-4">
+          Showing page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+        </div> {% endcomment %}
+      
+
+
+      
+
+      {% comment %} <div class="row mt-5">
+        <div class="col text-center">
+          <div class="block-27">
+
+            {% include "partials/_pagination.html" with page=page_obj %}
+
+          </div>
+        </div>
+      </div>   {% endcomment %}
+
+
+
+
+  {% endblock dashboard %}
+

@@ -1,0 +1,174 @@
+{% extends 'ukts/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+{% include 'ukts/partials/_navbar.html' %}
+
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main min-vh-100" id="top">
+
+
+    <!-- ============================================-->
+    <!-- Preloader ==================================-->
+    <div class="preloader" id="preloader">
+      <div class="loader">
+        <div class="line-scale-pulse-out-rapid">
+          <div> </div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div> </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================-->
+    <!-- End of Preloader ===========================-->
+
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="py-6" id="page-single-product">
+
+            <div class="container">
+              <div class="row">
+    
+                <div class="col-lg-3 mt-6 mb-6 mt-lg-0 ps-xl-2 border-end ">
+                    <div class="row px-2 ">
+                      <div class="col">
+
+                        <div class="overflow-hidden">
+                            <div data-zanim-xs='{"delay":0.6}' data-zanim-trigger="scroll"><a class="btn btn-outline-dark mt-1 mb-1" href="{% url 'account:logout' %}">Logout</a></div>
+                        </div>
+
+                        <div class="mt-6">
+
+                          {% comment %} <div class="row align-items-center py-3 border-bottom">
+                            <h4>Dashboard</h4>
+                          </div> {% endcomment %}
+
+                          <div class="row align-items-center py-3 ">
+
+                            <div class="col-sm-12">
+                              <div class="row align-items-center">
+                                <div class="col-2"><a href="{% url 'treneri:treneri_list' %}"><span class="far fa-list-alt text-400 fs-0 fs-md-1 fs-lg-2"></span></a></div>
+                                <div class="col-10">
+                                  <div class="row g-0 align-items-center">
+                                    <div class="col-12 mt-2"><a class="text-black" href="{% url 'treneri:treneri_list' %}">
+                                        <h5 class="fw-bold mb-0">Lista Trenera</h5>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <div class="row align-items-center py-3 ">
+
+                            <div class="col-sm-12">
+                                <div class="row align-items-center">
+                                  <div class="col-2"><a href="{% url 'treneri:treneri_form' %}"><span class="far fa-address-card text-400 fs-0 fs-md-1 fs-lg-2"></span></a></div>
+                                  <div class="col-10">
+                                    <div class="row g-0 align-items-center">
+                                      <div class="col-12 mt-2"><a class="text-black" href="{% url 'treneri:treneri_form' %}">
+                                          <h5 class="fw-bold mb-0">Dodaj Trenera</h5>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                          </div>
+
+                          <div class="row align-items-center py-3 ">
+
+                              <div class="col-sm-12">
+                                <div class="row align-items-center">
+                                  <div class="col-2"><a href="{% url 'treneri:bcb_upload' %}"><span class="far fa-images text-400 fs-0 fs-md-1 fs-lg-2"></span></a></div>
+                                  <div class="col-10">
+                                    <div class="row g-0 align-items-center">
+                                      <div class="col-10 mt-2"><a class="text-black" href="{% url 'treneri:bcb_upload' %}">
+                                          <h5 class="fw-bold mb-0">BCB Upload Slika</h5>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                          </div>
+
+
+                          <div class="row align-items-center py-3 ">
+
+                              <div class="col-sm-12">
+                                <div class="row align-items-center">
+                                  <div class="col-2"><a href="{% url 'treneri:td_upload' %}"><span class="far fa-images text-400 fs-0 fs-md-1 fs-lg-2"></span></a></div>
+                                  <div class="col-10">
+                                    <div class="row g-0 align-items-center">
+                                      <div class="col-10 mt-2"><a class="text-black" href="{% url 'treneri:td_upload' %}">
+                                          <h5 class="fw-bold mb-0">TD Upload Slika</h5>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                          </div>
+
+
+
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-9 pe-lg-6">
+                    <div class="row">
+
+
+                        {% block dashboard %}
+                        {% endblock dashboard %}
+
+                    </div>
+                </div>
+    
+
+                
+              </div>
+            </div>
+            <!-- end of .container-->
+    
+          </section>
+          <!-- <section> close ============================-->
+          <!-- ============================================-->
+    
+
+
+
+
+
+
+    
+</main>
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+
+{% include 'ukts/partials/_footer.html' %}
+
+
+
+{% endblock content %} 
