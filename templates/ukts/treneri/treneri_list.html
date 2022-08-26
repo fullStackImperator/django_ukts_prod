@@ -9,19 +9,13 @@
 
           <div class="row align-items-center">
 
-            <div class="col-7 d-sm-flex align-items-center justify-content-between mb-4">
-              {% comment %} <a href="#" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                  <i class="fas fa-download fa-sm text-white-50"></i> Download PDF</a> {% endcomment %}
-              <a href="{% url 'treneri:export_excel' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                  <i class="fas fa-download fa-sm text-white-50"></i> Download Excel</a>
-              <a href="{% url 'treneri:export_csv' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                  <i class="fas fa-download fa-sm text-white-50"></i> Download CSV</a>
-            </div>
-          </div>
-
 
           <div class="row h-100 flex-center">
             <div class="col-lg-10">
+              <a href="{% url 'treneri:export_excel' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-download fa-sm text-white-50"></i> Download Excel</a>
+            <a href="{% url 'treneri:export_csv' %}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm mb">
+                <i class="fas fa-download fa-sm text-white-50"></i> Download CSV</a>
 
               <div class="font-sans-serif">
                 <h1 class="mb-4 fw-normal">Lista <span class='fw-black'>Trenera</span></h1>
@@ -29,7 +23,7 @@
                 {% comment %} <p class="mb-4">Ukucajte ime u donje polje i nadjite trenera</p> {% endcomment %}
               </div>
 
-              <form class="d-flex" method="post" id="search-form" autocomplete="off">
+              {% comment %} <form class="d-flex" method="post" id="search-form" autocomplete="off">
                 {% csrf_token %}
 
                 <div class="input-group mb-3">
@@ -38,7 +32,7 @@
 
               </form>
 
-              {% comment %} <div class="container " id="container"> {% endcomment %}
+              <div class="container " id="container">  {% endcomment %}
 
 
                 <div class="row border-bottom">

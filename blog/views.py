@@ -80,7 +80,7 @@ def post_list(request, tag_slug=None):
 
     context = {'page': page, 'posts': posts, 'tag': tag}
 
-    return render(request, 'ukts/list.html', context)
+    return render(request, 'ukts/blog/list.html', context)
 
 
 def post_detail(request, year, month, day, post):

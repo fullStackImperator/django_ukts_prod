@@ -38,12 +38,13 @@
 
             <div class="container-fluid">
               <div class="row">
+                
                 <div class="col-lg-6 bg-white pt-8 pb-4">
                   <div class="row h-100 flex-center">
                     <div class="col-lg-8" data-zanim-lg='{"animation":"slide-left","delay":0.6}' data-zanim-trigger="scroll">
                       <h1 class="text-decoration-underline d-inline-block mb-2 mb-lg-3">kontakt</h1>
-                      <h5 class="">Udruženje košarkaških trenera Srbije UKTS</h5>
-                      <h5 class="mb-4">Serbian Association of basketball coaches SABC</h5>                           
+                      <h5 class="mb-4">Udruženje košarkaških trenera Srbije UKTS</h5>
+                      {% comment %} <h5 class="mb-4">Serbian Association of basketball coaches SABC</h5>                            {% endcomment %}
                       <p class="fw-bold mb-0">Adresa:<span class="ms-2 fw-normal">Sazonova 83 - 11000 Beograd, Srbija</span></p>
                       <p class="fw-bold mb-0">Telefon 1:<span class="ms-2 fw-normal"><a class="text-700" href="tel:+13234324534">+381 11 3400 851</a></span></p>
                       <p class="fw-bold mb-0">Telefon 2:<span class="ms-2 fw-normal"><a class="text-700" href="tel:+13234324534">+381 11 3400 852</a></span></p>
@@ -64,18 +65,15 @@
                 </div>
                 
                 <div class="col-lg-6 px-0">
-                  <div class="sticky-top ovrflow-hidden-y">
-                    {% comment %} <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Sazonova%2083&amp;t=m&amp;z=14&amp;output=embed&amp;iwloc=near" title="Sazonova 83" aria-label="Sazonova 83"></iframe> {% endcomment %}
-                    <div class="googlemap min-vh-100 d-none d-lg-block" data-gmap="data-gmap" data-latlng="48.8588723,2.2932638" data-pov='{"heading":120,"pitch":0}' data-scrollwheel="false" data-icon="{% static 'ukts/img/map-marker.png' %}" data-zoom="1" data-theme="streetview" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}' data-zanim-trigger="scroll"></div>
-                    <!--Mobile Fallback-->
-                    <div class="googlemap min-vh-50 d-lg-none" data-gmap="data-gmap" data-latlng="48.8588723,2.2932638" data-pov='{"heading":75,"pitch":0}' data-scrollwheel="false" data-icon="{% static 'ukts/img/map-marker.png' %}" data-zoom="17" data-theme="Default">
-                      <div class="marker-content py-3">
-                        <h5>Eiffel Tower</h5>
-                        <p>Gustave Eiffel's iconic, wrought-iron 1889 tower,<br /> with steps and elevators to observation decks.</p>
-                      </div>
-                    </div>
+                  {% comment %} <div class="sticky-top ovrflow-hidden-y"> {% endcomment %}
+
+                  <div class="row-container">
+                    <iframe class="iframe_kontakt" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.314656642487!2d20.483956515040003!3d44.79477568588154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a707bd42a2c7f%3A0x3f67132479a34aa8!2sSazonova%2083%2C%20Beograd%2C%20Serbien!5e0!3m2!1sde!2sde!4v1661467267952!5m2!1sde!2sde" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
+
+                  {% comment %} </div> {% endcomment %}
                 </div>
+                
               </div>
             </div>
             <!-- end of .container-->

@@ -11,7 +11,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render, get_object_or_404
 
 from .forms import TreneriForm
-from .models import Trener
+from .models import Trener, UktsTrener
 from klinike.models import SlikeBCB, BCB, TD, SlikeTD
 
 from django.views.generic import ListView
@@ -24,7 +24,7 @@ from django.core import serializers
 
 # @login_required
 def treneri_list(request):
-	treneri = Trener.objects.all()
+	treneri = UktsTrener.objects.all()
 	
 	# paginator = Paginator(treneri, 2)
 	# page_number=request.GET.get('page')
@@ -39,7 +39,7 @@ def treneri_form(request, id=0):
 		if id == 0:
 			form = TreneriForm()
 		else:
-			trener = Trener.objects.get(pk=id)
+			trener = UktsTrener.objects.get(pk=id)
 			form = TreneriForm(instance=trener)
 		context = {'form' : form}
 		return render(request, "ukts/treneri/treneri_form.html", context)
@@ -47,7 +47,7 @@ def treneri_form(request, id=0):
 		if id == 0:
 			form = TreneriForm(request.POST, request.FILES)
 		else:
-			trener = Trener.objects.get(pk=id)
+			trener = UktsTrener.objects.get(pk=id)
 			form = TreneriForm(request.POST, request.FILES, instance=trener)
 
 		if form.is_valid():
@@ -56,7 +56,7 @@ def treneri_form(request, id=0):
 
 # @login_required
 def treneri_delete(request, id):
-	trener = Trener.objects.get(pk=id)
+	trener = UktsTrener.objects.get(pk=id)
 	if request.method =="POST":
 		trener.delete()
 		return redirect('/treneri/list')

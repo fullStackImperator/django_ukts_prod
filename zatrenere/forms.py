@@ -36,13 +36,13 @@ class AplikacijaForm(forms.Form):
     slika = forms.FileField(required=False)
 
     broj_licence = forms.CharField(required=True)
-    boja_licence = forms.ChoiceField(choices = LICENCA_CHOICES) # choice field
+    boja_licence = forms.ChoiceField(choices = LICENCA_CHOICES, required=True) # choice field
 
     zvanje_licenca = forms.CharField(widget=forms.TextInput, label='Zvanje koje piše na licenci', required=True)
 
     clan_od = forms.DateField(widget=DateInput, label='Član od') # DateField
 
-    diploma = forms.FileField(required=False)
+    diploma = forms.FileField(required=True)
 
     diploma_broj = forms.CharField(widget=forms.Textarea, label='Diploma datum  i mesto izdavanja i broj diplome, akademsko zvanje (piše na diploma)', required=True)
 

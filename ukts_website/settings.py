@@ -175,7 +175,7 @@ USE_TZ = True
 # ]
 
 # STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_LOCATION = 'static'
 # STATICFILES_DIRS = [
@@ -192,17 +192,17 @@ MEDIA_ROOT = BASE_DIR /"media/"
 
 
 # S3 configuration
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_QUERYSTRING_AUTH = False
-AWS_DEFAULT_ACL = 'public-read'
+# AWS_QUERYSTRING_AUTH = False
+# AWS_DEFAULT_ACL = 'public-read'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AWS_S3_ACCESS_KEY_ID = 'AKIAW5FRUHHA72EAPMOY'
-AWS_S3_SECRET_ACCESS_KEY = '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'
+# AWS_S3_ACCESS_KEY_ID = 'AKIAW5FRUHHA72EAPMOY'
+# AWS_S3_SECRET_ACCESS_KEY = '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'
 
-AWS_STORAGE_BUCKET_NAME = 'ukts-demo'
+# AWS_STORAGE_BUCKET_NAME = 'ukts-demo'
 
 
 
@@ -213,13 +213,14 @@ AWS_STORAGE_BUCKET_NAME = 'ukts-demo'
 #SMTP Configuration
 DEFAULT_FROM_EMAIL = 'stvel075@gmail.com'
 
-EMAIL_Backend = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # EMAIL_USE_SSL = False
 EMAIL_HOST_USER = 'stvel075@gmail.com'
-EMAIL_HOST_PASSWORD = 'xxx'
+EMAIL_HOST_PASSWORD = 'Stanford83'
 
 
 CKEDITOR_CONFIGS = {

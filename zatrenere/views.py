@@ -1,10 +1,14 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from .models import Planeri, Lekarski, Uplatnice, Aplikacija
 from .forms import AplikacijaForm
+
+from ukts_website.settings import EMAIL_HOST_USER
+
+
 
 class PlaneriView(generic.ListView):
 	model = Planeri
@@ -45,15 +49,36 @@ class UplatniceView(generic.ListView):
 def AplikacijaView(request):
     if request.method == 'GET':
         form = AplikacijaForm()
-    else:
-        form = AplikacijaForm(request.POST)
+        print("in GET")
+    elif request.method == 'POST':
+        form = AplikacijaForm(request.POST, request.FILES)
+        print("in post")
         if form.is_valid():
-            subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
-            message = form.cleaned_data['message']
+			
+            subject = form.cleaned_data['prezime']
+            # from_email = form.cleaned_data['from_email']
+            body = {
+				'ime': form.cleaned_data['ime'], 
+				'prezime': form.cleaned_data['prezime'], 
+				# 'email': form.cleaned_data['email_address'], 
+				# 'message':form.cleaned_data['message'], 
+			}
+            message = "\n".join(body.values())
+
+            print("is valid")
+
             try:
-                send_mail(subject, message, from_email, ['stevanv@gmx.de'])
+                email = EmailMessage(subject, message, EMAIL_HOST_USER, ['stevanv@gmx.de'])
+                email.content_subtype = 'html'
+
+                diploma = form.cleaned_data['diploma']
+                email.attach(diploma.name, diploma.read(), diploma.content_type )
+
+                email.send()
+                # send_mail(subject, message, from_email, ['stevanv@gmx.de'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('success')
+
+            return HttpResponse("Sent")
+            # return redirect('success')
     return render(request, "ukts/zatrenere/aplikacija.html", {'form': form})

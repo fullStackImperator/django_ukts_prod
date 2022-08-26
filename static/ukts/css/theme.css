@@ -4514,13 +4514,13 @@ textarea.form-control-lg {
 }
 
 .btn-outline-primary {
-  color: #045bc1;
-  border-color: #045bc1;
+  color: #041c36;
+  border-color: #041c36;
 }
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #045bc1;
-  border-color: #045bc1;
+  background-color: #435b75;
+  border-color: #435b75;
 }
 .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
   -webkit-box-shadow: 0 0 0 0.25rem rgba(4, 91, 193, 0.5);

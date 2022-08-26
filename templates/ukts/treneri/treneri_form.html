@@ -1,29 +1,33 @@
 {% extends 'ukts/treneri/treneri_base.html' %}
-{% comment %} {% extends 'treneri/baseTreneri.html' %} {% endcomment %}
 {% load crispy_forms_tags %}
 
 
 {% block dashboard %}
 
-        <div class="row justify-content-center mb-3">
-            <div class="col-md-6">
-                <h4 class="card-title">Dodaj Trenera</h4>
-                <p class="card-description"> Unesi podatke </p>
-            </div>
-        </div>
 
+
+        <div class="row align-items-center">
+
+
+            <div class="row h-100 flex-center">
+              <div class="col-lg-10">
+                <div class="font-sans-serif">
+                    <h1 class="mb-4 fw-normal">Dodaj <span class='fw-black'>Trenera</span></h1>
+                    {% comment %} <h6 class="ls text-uppercase fw-bold mb-4">Pretraga svih članova UKTS</h6> {% endcomment %}
+                    {% comment %} <p class="mb-4">Ukucajte ime u donje polje i nadjite trenera</p> {% endcomment %}
+                  </div>
       <form action="" method="post" enctype="multipart/form-data" class="forms-sample">
         {% csrf_token %}
 
         <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-10">
             <div class="form-group">
                 {{form.ime|as_crispy_field }}
             {% comment %} <label for="exampleInputUsername1">Username</label>
             <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username"> {% endcomment %}
             </div>
             <div class="form-group">
-                {{form.email|as_crispy_field }}
+                {{form.prezime|as_crispy_field }}
             {% comment %} <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"> {% endcomment %}
             </div>
@@ -32,43 +36,28 @@
             {% comment %} <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> {% endcomment %}
             </div>
-            <div class="form-check form-check-flat form-check-primary">
-                {{form.slika|as_crispy_field}}
+            <div class="form-group">
+                {{form.boja|as_crispy_field}}
                 {% comment %} <label class="form-check-label">
                 <input type="checkbox" class="form-check-input"> Remember me </label> {% endcomment %}
             </div>
         </div>
-        <div class="col-md-5">
 
-            <div class="form-group">
-                {{form.telefon|as_crispy_field }}
-            {% comment %} <label for="exampleInputConfirmPassword1">Confirm Password</label>
-            <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password"> {% endcomment %}
-            </div>
-            <div class="form-check form-check-flat form-check-primary">
-                {{form.klub|as_crispy_field }}
-                {% comment %} <label class="form-check-label">
-                <input type="checkbox" class="form-check-input"> Remember me </label> {% endcomment %}
-            </div>
-            <div class="form-check form-check-flat form-check-primary">
-                {{form.region|as_crispy_field }}
-                {% comment %} <label class="form-check-label">
-                <input type="checkbox" class="form-check-input"> Remember me </label> {% endcomment %}
-            </div>
-            <div class="form-check form-check-flat form-check-primary">
-                {{form.datum_rodjenja|as_crispy_field}}
-                {% comment %} <label class="form-check-label">
-                <input type="checkbox" class="form-check-input"> Remember me </label> {% endcomment %}
-            </div>
-            <button type="submit" class="btn btn-outline-primary me-2">Submit</button>
+
+           
+            <button type="submit" class="btn btn-outline-dark me-2">Submit</button>
             {% comment %} <button class="btn btn-light">Cancel</button> {% endcomment %}
-            <a href="{% url 'treneri:treneri_list' %}" class="btn btn-outline-primary">
+            <a href="{% url 'treneri:treneri_list' %}" class="btn btn-outline-dark">
                 <i class="fas fa-stream"></i> Back to list
             </a>
-        </div>
+
         </div>
       </form>
 
+
+    </div>
+</div>
+</div>
 
 
 
