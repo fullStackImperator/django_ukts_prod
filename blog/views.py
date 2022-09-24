@@ -12,6 +12,15 @@ from taggit.models import Tag
 
 from .forms import CommentForm, EmailPostForm, SearchForm
 from .models import Comment, Post
+from klinike.models import BCB_Promocija
+from magazin.models import Files
+from edukacija.models import Knjiga_Promocija
+
+def Promocija_BCB_HeadView(request):
+    promocija_bcb = BCB_Promocija.objects.all()
+    print(promocija_bcb)
+    context = {'promocija_bcb': promocija_bcb}
+    return render(request, 'ukts/klinike/promo_bcb_landing.html', context)
 
 
 def post_search(request): 
@@ -35,20 +44,14 @@ def post_search(request):
 
     return render(request,'blog/post/search.html', context)
 
-
-
-
-class PostListView(ListView):
-    queryset = Post.published.all()
-    context_object_name = 'posts'
-    paginate_by = 3
-    template_name = 'list.html'
-
-
     
-def post_list(request, tag_slug=None):
+def home_view(request, tag_slug=None):
 #    posts = Post.published.all()
     object_list = Post.published.all()
+    promocija_bcb = BCB_Promocija.objects.all()
+    magazin = Files.objects.all()
+    knjige = Knjiga_Promocija.objects.all()
+
 
     tag = None
 
@@ -78,9 +81,9 @@ def post_list(request, tag_slug=None):
     # post = get_object_or_404(Post, slug=post, status='published', publish__year=year, publish__month=month, publish__day=day)
     # comments = post.comments.filter(active=True)
 
-    context = {'page': page, 'posts': posts, 'tag': tag}
+    context = {'page': page, 'posts': posts, 'tag': tag, 'promocija_bcb': promocija_bcb, 'magazin': magazin, 'knjige': knjige}
 
-    return render(request, 'ukts/blog/list.html', context)
+    return render(request, 'ukts/landing.html', context)
 
 
 def post_detail(request, year, month, day, post):
@@ -115,7 +118,7 @@ def post_detail(request, year, month, day, post):
     context = {'post': post, 'comments':comments, 
                 'new_comment': new_comment, 'comment_form': comment_form, 'similar_posts': similar_posts}
                 
-    return render(request, 'detail.html', context)
+    return render(request, 'ukts/blog/single_post.html', context)
 
 
 

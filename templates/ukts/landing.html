@@ -1,45 +1,451 @@
 {% extends 'ukts/base.html' %}
 {% load static %}
-
-
-{% block content %}
-
-
-    {% include 'ukts/partials/_navbar.html' %}
+{% load videoID %}
 
 
 
-    <!-- ===============================================-->
-    <!--    Main Content-->
-    <!-- ===============================================-->
-    <main class="main min-vh-100" id="top">
 
+{% block header %}
 
       <!-- ============================================-->
-      <!-- Preloader ==================================-->
-      <div class="preloader" id="preloader">
-        <div class="loader">
-          <div class="line-scale-pulse-out-rapid">
-            <div> </div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div> </div>
+      <!-- <section> begin ============================-->
+        <section class="py-0">
+
+          <div class="container-fluid">
+            {% comment %} border-bottom {% endcomment %}
+            <div class="row h-100 ">
+              
+
+              <div class="col-lg-6 px-0 order-lg-2 min-vh-50 min-vh-lg-100">
+                <div class="position-relative h-100" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
+                  
+                  {% comment %} block in Klinike templates {% endcomment %}
+                  {% for promo in promocija_bcb %}
+                  <div class="bg-holder" style="background-image:url({{ promo.slika_landing_page.url }});">
+                      {% comment %} <div class="yt-video" data-youtube-embed='{"videoId":"iJURa5JVBqU","startSeconds":"10","endSeconds":"34","attrs":{"data-zanim-trigger":"scroll","data-zanim-lg":{"animation":"zoom-out","delay":0}}}'></div> {% endcomment %}
+                      </div>
+                  
+
+                  {% endfor%}
+
+                </div>
+              </div>
+
+              <div class="col-lg-6 bg-white py-7 py-md-8">
+                <div class="row flex-center h-100">
+                  <div class="col-lg-10 text-black text-center text-lg-start" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                    <div class="overflow-hidden">
+                      {% comment %} <h5 class="fw-normal ls text-white bg-primary p-1 rounded d-inline-block" data-zanim-xs='{"delay":0.1}'>  UDRUZENJE &nbsp;KOSARKASKIH &nbsp;TRENERA &nbsp;SRBIJE</h4> {% endcomment %}
+                      {% comment %} <h4 class="fw-normal ls text-bg-primary" data-zanim-xs='{"delay":0.1}'>  Udruzenje &nbsp;Kosarkaskih &nbsp;Trenera &nbsp;Srbije</h4> {% endcomment %}
+                    </div>
+                    <div class="overflow-hidden">
+                      <img class="rounded img-fluid" width="370" height="500" src="{% static 'ukts/img/logo/ukts_logo_1.png' %}" alt="" />
+                      {% comment %} <img class="shadow-lg rounded img-fluid" src="{% static 'ukts/img/logo/ukts_logo.png' %}" alt="" /> {% endcomment %}
+                      {% comment %} <h1 class="display-3 fs-5 fs-sm-6" id="sc" data-zanim-xs='{"delay":0.2}'><span class="text-decoration-underline">UKTS</span><br /><span class="fw-light">creative</span></h1> {% endcomment %}
+                    </div>
+                  </br>
+                    <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>  Udruženje &nbsp;Košarkaških &nbsp;Trenera &nbsp;Srbije</h5>
+  
+                    <div class="overflow-hidden mb-4">
+                      {% comment %} <p class="text-900 fs-0 mt-3 mt-md-5 text-upper" data-zanim-xs='{"delay":0.3}'> Edukacija preko 1.600 članova<br />Beogradska Kosarkaska Klinika (BCB)<br />Magazin TRENER</p> {% endcomment %}
+                      {% comment %} <h6 class="fw-bold overflow-hidden text-upper" data-zanim-xs='{"delay":0.3}'>Naši zadatci:<span class="fw-bold ms-1 text-upper" data-typed-text='["Edukacija preko 1.600 članova","Beogradska Kosarkaska Klinika","Trenerski Dani Borivoje Cenić","Magazin TRENER"]'></span></h6> {% endcomment %}
+
+                      {% comment %} <p class="text-900 fs-0 mt-3 mt-md-5 text-upper" data-zanim-xs='{"delay":0.3}'> Preko 1.600 članova<br /> Edukujemo trenere<br/> Razvijamo košarku </p> {% endcomment %}
+                    </div>
+                    <div class="overflow-hidden">
+                      <div class="d-lg-flex align-items-center fw-bold ls mt-3 mt-md-5 text-uppercase" data-zanim-xs='{"delay":0.4}'>
+                        <h6 class="mb-lg-0">Pratite nas:</h6>
+                        <div class="overflow-hidden">
+                          <a class="me-1" href="https://www.facebook.com/ukts.rs/"><span class="fab fa-facebook  me-2 ms-3 fs-0"></span></a>
+                          <a class="me-1" href="https://twitter.com/sabc_ukts"><span class="fab fa-twitter me-2 fs-0"></span></a>
+                          <a class="me-1" href="https://www.linkedin.com/company/udru%C5%BEenje-ko%C5%A1arka%C5%A1kih-trenera-srbije"><span class="fab fa-linkedin me-2 fs-0"></span></a>
+                          <a class="me-1" href="https://www.instagram.com/ukts_kosarkaski_treneri_srbije"><span class="fab fa-instagram  fs-0"></span></a></div>
+                          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+{% endblock header %}
+    
+
+{% block novosti %}
+
+
       <!-- ============================================-->
-      <!-- End of Preloader ===========================-->
+      <!-- <section> begin ============================-->
+        <section class="py-4 bg-light" id="promotionPartners">
 
-
-      {% include 'ukts/partials/_sliderTreneri.html' %}
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-sm-auto">
+                <div class="row align-items-center justify-content-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                  <h6 class="mt-4 mt-md-0 text-center">NAŠI <br class="d-none d-sm-block" />PARTNERI</h6>
+                </div>
+              </div>
+              <div class="col-sm ms-auto mt-2 mt-sm-0">
+                <div class="row align-items-center justify-content-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                  <div class="col-auto col-md-4 col-lg-auto my-3" data-zanim-xs='{"animation":"slide-left","delay":0.1}'><img class="logoSponzor" src="{% static 'ukts/img/landing/kss.jpeg' %}" alt="" /></div>
+                  <div class="col-auto col-md-4 col-lg-auto my-3" data-zanim-xs='{"animation":"slide-left","delay":0.1}'><img class="logoSponzor" src="{% static 'ukts/img/landing/FIBA_logo.png' %}" alt="" /></div>
+                  <div class="col-auto col-md-4 col-lg-auto my-3" data-zanim-xs='{"animation":"slide-left","delay":0.2}'><img class="logoSponzor" src="{% static 'ukts/img/landing/wabc2.png' %}" alt="" /></div>
+                  <div class="col-auto col-md-4 col-lg-auto my-3" data-zanim-xs='{"animation":"slide-left","delay":0.3}'><img class="logoSponzor" src="{% static 'ukts/img/landing/adidas.png' %}" alt="" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
 
 
 
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-        <section class="py-6 py-md-8" id="defaultWhyUs">
+        <section class="" id="promotionBook">
+
+          <div class="container">
+            <div class="row align-items-center">
+
+
+              <div class="col-lg-6 pe-sm-8 py-4 px-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                <div class="border text-danger border-danger fw-bold px-1 fs--1 rounded d-inline-block mb-2">NOVO</div>
+                <div class="overflow-hidden">
+                  <h2 data-zanim-xs='{"delay":0.1}'>Nove knjige u izdanju UKTS</h2>
+                </div>
+                <div class="overflow-hidden">
+                  <h5 class="mt-4" data-zanim-xs='{"delay":0.2}'>Patric Cournoyer</h5>
+                </div>
+                <div class="overflow-hidden">
+                  <h6 class="text-700" data-zanim-xs='{"delay":0.3}'>CEO &amp; Founder, Sparrow inc.</h6>
+                </div>
+                <div class="mt-4" data-zanim-xs='{"delay":0.4}'><a class="btn btn-danger" href="mailto:ukts@ukts.rs"><span class="fas fa-paper-plane me-3" data-fa-transform="grow-8"></span>naruči</a></div>
+              </div>
+
+
+              <div class="col-lg-6 mt-2 mt-lg-0" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
+                
+                <div class="swiper-container theme-slider swiper-theme" data-swiper='{"autoplay":{"delay":5000,"disableOnInteraction":false},"loop":true,"effect":"fade","pagination":{"el":".swiper-pagination","clickable":true,"type":"bullets"}}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
+                  <div class="swiper-wrapper ">
+
+                    {% for knjiga in knjige %}
+                    <div class="swiper-slide min-vh-lg-75 justify-content-center">
+                      <div class="hoverbox ">
+                        <img class="rounded h-75 w-75 center" src="{{ knjiga.title_page_eq.url }}" alt="" />
+                      </div>
+                      {% comment %} <div class="bg-holder" style="background-image:url('static/ukts/img/slider/Duda.png');">
+                      </div> {% endcomment %}
+                      <!--/.bg-holder-->
+
+                    </div>
+                    
+                    {% endfor %}
+
+                    {% comment %} <div class="swiper-slide min-vh-lg-75 ">
+                      <div class="hoverbox">
+                        <img class="rounded w-100" src="{% static 'ukts/img/def_drills_2.jpeg' %}" alt="" />
+                      </div>
+                    </div>
+                    <div class="swiper-slide min-vh-lg-75 ">
+                      <div class="hoverbox">
+                        <img class="rounded w-100" src="{% static 'ukts/img/def_drills_3.jpeg' %}" alt="" />
+                      </div>
+                    </div> {% endcomment %}
+                    
+                  </div>
+
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-nav">
+                    <div class="swiper-button-next me-md-3"></div>
+                    <div class="swiper-button-prev ms-md-3"> </div>
+                  </div>
+
+                </div>
+              </div> 
+
+
+
+            </div>
+          </div>
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="py-0" id="ecommerceProducts">
+
+          <div class="container-fluid px-4">
+            
+            <div class="row justify-content-center mb-5">
+
+
+              {% for knjiga in knjige %}
+  
+              <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="row g-0">
+                  <div class="col-12 overflow-hidden rounded" data-zanim-timeline='{"delay":0}' data-zanim-trigger="scroll">
+                    <div class="row" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
+                      <div class="col">
+                        <div class="swiper-container theme-slider swiper-theme" data-swiper='{"loop":true,"effect":"fade","pagination":{"el":".swiper-pagination","clickable":true,"type":"bullets"}}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
+                          <div class="swiper-wrapper">
+                            {% if knjiga.slika_slider1_eq %}
+                            <div class="swiper-slide"> <a href="{{ knjiga.pdf.url }}"><img class="h-100 w-100" src="{{ knjiga.slika_slider1_eq.url }}" alt="" /></a>
+                            </div>
+                            {% endif %}
+                            {% if knjiga.slika_slider2_eq %}
+                            <div class="swiper-slide"> <a href="{{ knjiga.pdf.url }}"><img class="h-100 w-100" src="{{ knjiga.slika_slider2_eq.url }}" alt="" /></a>
+                            </div>
+                            {% endif %}
+                          </div>
+                          <div class="swiper-pagination"></div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next me-md-3"></div>
+                            <div class="swiper-button-prev ms-md-3"> </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="col-12 mt-2" href="#!">
+                    <h5 class="fs-0">{{ knjiga.naslov }}</h5>
+                    <h6 class="font-sans-serif mt-2 text-500">{{ knjiga.autor }}</h6>
+                  </a>
+                  {% comment %} <a class="col-12 text-start" href="#!">
+                    <h6 class="font-sans-serif mt-2 text-500">UKTS</h6>
+                  </a> {% endcomment %}
+                </div>
+              </div>
+
+              {% endfor %}
+
+
+
+              {% comment %} <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="row g-0">
+                  <div class="col-12 overflow-hidden rounded" data-zanim-timeline='{"delay":0.1}' data-zanim-trigger="scroll">
+                    <div class="row" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
+                      <div class="col">
+                        <div class="swiper-container theme-slider swiper-theme" data-swiper='{"loop":true,"effect":"fade","pagination":{"el":".swiper-pagination","clickable":true,"type":"bullets"}}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                              <div class="badge badge-rotate bg-danger" data-zanim-xs='{"delay":0.8,"animation":"slide-down"}'><span class='fas fa-star'></span> Best selling</div><a href="../pages/product-single.html"><img class="h-100 w-100" src="{% static 'ukts/img/defDrills1.png' %}" alt="" /></a>
+                            </div>
+                            <div class="swiper-slide">
+                              <div class="badge badge-rotate bg-danger" data-zanim-xs='{"delay":0.8,"animation":"slide-down"}'><span class='fas fa-star'></span> Best selling</div><a href="../pages/product-single.html"><img class="h-100 w-100" src="{% static 'ukts/img/defDrills2.png' %}" alt="" /></a>
+                            </div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next me-md-3"></div>
+                            <div class="swiper-button-prev ms-md-3"> </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><a class="col-6 mt-2" href="#!">
+                    <h5 class="fs-0">Women's Cropped Wide Leg Crpe Pant</h5>
+                  </a><a class="col-6 mt-2 text-end" href="#!">
+                    <h6 class="fw-normal mb-0 d-inline-block">&#36;454.00</h6>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="row g-0">
+                  <div class="col-12 overflow-hidden rounded" data-zanim-timeline='{"delay":0.2}' data-zanim-trigger="scroll">
+                    <div class="row" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
+                      <div class="col">
+                        <div class="swiper-container theme-slider swiper-theme" data-swiper='{"loop":true,"effect":"fade","pagination":{"el":".swiper-pagination","clickable":true,"type":"bullets"}}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> <a href="../pages/product-single.html"><img class="h-100 w-100" src="{% static 'ukts/img/ecommerce/6.jpg' %}" alt="" /></a>
+                            </div>
+                            <div class="swiper-slide"> <a href="../pages/product-single.html"><img class="h-100 w-100" src="{% static 'ukts/img/ecommerce/4.jpg' %}" alt="" /></a>
+                            </div>
+                            <div class="swiper-slide"> <a href="../pages/product-single.html"><img class="h-100 w-100" src="{% static 'ukts/img/ecommerce/5.jpg' %}" alt="" /></a>
+                            </div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next me-md-3"></div>
+                            <div class="swiper-button-prev ms-md-3"> </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><a class="col-6 mt-2" href="#!">
+                    <h5 class="fs-0">Women's Rory Herringbone Stripe</h5>
+                  </a><a class="col-6 mt-2 text-end" href="#!">
+                    <h6 class="fw-normal mb-0 d-inline-block">&#36;123.00</h6>
+                    <h6 class="fw-normal text-600"><span class="d-inline-block">
+                        <del>&#36;323.00</del></span></h6>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="row g-0">
+                  <div class="col-12 overflow-hidden rounded" data-zanim-timeline='{"delay":0.3}' data-zanim-trigger="scroll">
+                    <div class="row" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
+                      <div class="col ">
+                        <div class="swiper-container theme-slider swiper-theme" data-swiper='{"loop":true,"effect":"fade","pagination":{"el":".swiper-pagination","clickable":true,"type":"bullets"}}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
+                          <div class="swiper-wrapper ">
+                            <div class="swiper-slide"> <a href="../pages/product-single.html"><img class="h-100 w-100" src="{% static 'ukts/img/ecommerce/8.jpg' %}" alt="" /></a>
+                            </div>
+                            <div class="swiper-slide"> <a href="../pages/product-single.html"><img class="h-100 w-100" src="{% static 'ukts/img/ecommerce/7.jpg' %}" alt="" /></a>
+                            </div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next me-md-3"></div>
+                            <div class="swiper-button-prev ms-md-3"> </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><a class="col-6 mt-2" href="#!">
+                    <h5 class="fs-0">Women's Ella Cotton Boot Cut</h5>
+                  </a><a class="col-6 mt-2 text-end" href="#!">
+                    <h6 class="fw-normal mb-0 d-inline-block">&#36;334.00</h6>
+                    <h6 class="fw-normal text-600"><span class="d-inline-block">
+                        <del>&#36;434.00</del></span></h6>
+                  </a>
+                </div>
+              </div> {% endcomment %}
+
+
+            </div>
+  
+  
+          </div>
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+  
+
+
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="py-0 overflow-hidden" id="defaultCta1">
+
+          {% comment %} <div class="container"> {% endcomment %}
+            <div class="position-absolute overflow-hidden all-0">
+              <div class="bg-holder overlay overlay-0 rounded" style="background-image:url({% static 'ukts/img/kos_klinik.jpeg' %});" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out","delay":0}'>
+              </div>
+              <!--/.bg-holder-->
+  
+            </div>
+            <div class="row justify-content-center align-items-center text-center py-7">
+              {% comment %} <div class="col-lg-6 position-relative">
+                <p class="display-4 text-white fs-2 fs-sm-3 " data-countdown='{"date":"05","month":"jun","year":2023}'></p>
+              </div> {% endcomment %}
+              <div class="col-lg-8 position-relative">
+                <h3 class="fs-2 fs-sm-3 mb-3 text-white">Basketball Clinic Belgrade</h3>
+                <p class="display-4 text-white fs-2 fs-sm-3 " data-countdown='{"date":"05","month":"jun","year":2023}'></p>
+                {% comment %} <p class="lead fst-italic text-400 px-lg-7">Aplly Now</p> {% endcomment %}
+                <div class="col-lg-auto pe-lg-5 mt-4 mt-lg-0"><a class="btn btn-outline-light mt-4 border-2" href="#!">Apply Now</a></div>
+              </div>
+            </div>
+          {% comment %} </div> {% endcomment %}
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+
+
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="overflow-hidden bg-light" id="vesti">
+          <div class="container">
+              
+              {% comment %} <div class="col-12 mb-4  font-sans-serif" id="bicycle-caption">
+                  <h2 class="text-center fs-3 fs-sm-4"><span class=" text-decoration-underline fw-black">vesti i saopštenja</span></h2>
+              </div> {% endcomment %}
+      
+              <div class="row">
+                  <h2 class="text-center mb-6 fs-3 fs-sm-4"><span class=" text-decoration-underline fw-black">vesti i saopštenja</span></h2>
+      
+                  <div class="col-lg-12 mb-4 mb-lg-0 font-sans-serif">
+                    <div class="swiper-container theme-slider swiper-theme" data-swiper='{"autoplay":true,"spaceBetween":30,"loop":true,"loopedSlides":5,"slideToClickedSlide":true,"slidesPerView":1,"breakpoints":{"670":{"slidesPerView":2},"1200":{"slidesPerView":3}}}'>
+                      <div class="swiper-wrapper ms-0 px-0 py-2">
+      
+                          {% for post in posts|slice:":5" %}
+                          
+                          <div class="swiper-slide border bg-white justify-content-between d-flex flex-column rounded cards">
+                              <img class="w-100" src="{{ post.image_resize.url }}" alt="" />
+                              {% comment %} |truncatechars:30 {% endcomment %}
+                              <h4 class="mt-3 mb-2 px-3 card-title bg-white text-start" >{{ post.title }}</h4>  
+                              <p class="fs-0 px-3 mt-2 cards-body bg-white  text-700 text-start">{{ post.body|safe|striptags|truncatechars:210 }}</p>
+                              <div class="pt-5 px-3 py-2">
+                                  <a  style="text-decoration : none" href="{{ post.get_absolute_url }}">
+                                  <h6 class=" fw-bold outline-none alignleft">{{ post.publish.date|date:'d/m/Y' }}</h6>
+                                  </a>
+                                  <a  style="text-decoration : none" href="{{ post.get_absolute_url }}">
+                                  <h6 class=" fw-bold outline-none alignright"><span class="far fa-comment"></span> {{ post.comments.count }}  </h6> 
+                                  </a>
+                              </div>
+                          </div>
+      
+                          {% endfor %}
+      
+                          
+      
+                      </div>
+                      
+                      <div class="swiper-nav">
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"> </div>
+                      </div>
+      
+                      <div class="swiper-pagination"></div>
+                      
+                    </div>
+      
+      
+                  </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                  <a class="btn btn-outline-danger mt-6" href="{% url 'blog:vesti' %}">Sve vesti</a>
+              </div>
+          </div>
+      
+      
+      </section> 
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="py-6 py-md-8" id="onama">
 
           <div class="container">
 
@@ -115,7 +521,7 @@
   
         <!-- ============================================-->
         <!-- <section> begin ============================-->
-        <section class="text-center py-8 py-md-11 overflow-hidden" id="defaultVideo">
+        <section class="text-center bg-light py-8 py-md-11 overflow-hidden" id="defaultVideo">
   
           <div class="bg-holder" style="background-image:url('static/ukts/img/savez.png');" data-parallax="" data-rellax-percentage="0.5" data-rellax-speed="-3">
           </div>
@@ -148,13 +554,12 @@
         <!-- ============================================-->
 
 
-        {% block news %}
 
-        {% endblock news %} 
+      
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-        <section class="overflow-hidden bg-light" id="landing-features-1">
+        <section class="bg-light" id="landing-features-1">
 
           <div class="container">
             <div class="row align-items-center">
@@ -184,7 +589,7 @@
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-        <section class="overflow-hidden bg-light" id="landing-features-1">
+        <section class="overflow-hidden bg-light" id="landing-features-2">
 
           <div class="container">
             <div class="row align-items-center">
@@ -215,7 +620,7 @@
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-        <section class="overflow-hidden bg-light" id="landing-features-1">
+        <section class="overflow-hidden bg-light" id="landing-features-3">
 
           <div class="container">
             <div class="row align-items-center">
@@ -223,7 +628,7 @@
                 <div class="row bg-white rounded py-5 py-xl-5 px-5 px-md-0 font-sans-serif">
                   <div class="col-md-9 col-lg-8 offset-md-1 offset-lg-2" data-zanim-timeline="{}" data-zanim-trigger="scroll">
                     <div class="overflow-hidden mb-2">
-                      <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.1}'>Magazin "TRENER"</h4>
+                      <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.1}'>MAGAZIN "TRENER"</h4>
                     </div>
                     <div class="overflow-hidden">
                       <p class="mb-4 mb-lg-6" data-zanim-xs='{"delay":0.2}'>Magazin TRENER je nastao davne  1997. godine. Još tada, pa sve do danas, časopis je opstao i važi za jedan od najkvalitetnijih magazina za košarku u Evropi ali i svetu. </br> </br> Srbija je jedna od retkih zemalja koja poseduje ovakvu riznicu stručnih tema i to bogatstvo da u svojim brojevima ima mnogobrojne intervjue, vežbe, mišljenja i savete svih domaćih i svetskih najuglednijih košarkaških trenera i stručnjaka. </br> </br> Sam časopis je napravljen u cilju stručnog usavršavanja košarkaških trenera a odrađene su neophodne formalno pravne okolnosti: zakonska registracija, izrada programske koncepcije, izbor Izdavačkog saveta i urednika. </br> </br> Časopis od svog prvog broja izlazi svakog kvartala u godini. </br> </br> Sva izdanja magazina TRENER možete pročitati ovde.</p>
@@ -231,7 +636,14 @@
                   </div>
                 </div>
               </div>
-              <div class="position-md-absolute start-50 bottom-49 w-md-50" data-parallax="data-parallax" data-rellax-speed="5" data-rellax-percentage="0.5"><img class="shadow-lg rounded img-fluid" src="{% static 'ukts/img/landing/trener_107.jpeg' %}" alt="" /></div>
+
+
+              {% for file in magazin %}
+              {% if forloop.last %}
+              <div class="position-md-absolute start-50 bottom-49 w-md-50" data-parallax="data-parallax" data-rellax-speed="5" data-rellax-percentage="0.5"><img class="shadow-lg rounded img-fluid" src="{{ file.cover.url }}" alt="" /></div>
+              {% endif %}
+              {% endfor %}
+            
             </div>
           </div>
           <!-- end of .container-->
@@ -242,33 +654,124 @@
 
 
 
-      {% comment %} <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section id="defaultCta4">
 
-        <div class="container">
-          <div class="row justify-content-center text-center">
-            <div class="col-lg-8">
-              <h2>Diskutuj u Forumu</h2>
-              <p>Na forumu mozete diskutujete o svim temama vezano za kosarku. Tvoje misljenje nam je bitno!</p><a class="btn btn-outline-dark rounded-pill mt-4" href="#!">Prijavi se</a>
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section id="StudioPartners">
+
+          <div class="container">
+            <div class="row">
+
+              <div class="col-12 mb-7 mb-md-2 font-sans-serif" id="">
+                <h2 class="text-center mb-7 mb-md-2 fs-3 fs-sm-4"><span class=" text-decoration-underline fw-black">naši partneri</span></h2>
+              </div>
+              {% comment %} <div class="col-12">
+                <h1 class="mb-7 text-decoration-underline">naši partneri</h1>
+              </div> {% endcomment %}
+
+
+            <div class="row align-items-center mt-7">
+              <div class="col-lg-4 col-sm-6">
+                <div class="d-flex align-items-center justify-content-center">
+                  <img class="me-3" src="{% static "ukts/img/landing/kss.jpeg" %}" alt="" width="180" />
+                  {% comment %} <div class="flex-1">
+                    <h4 class="mb-0">vintage collection</h4><a class="text-700" href="#!">vintage.com</a>
+                  </div> {% endcomment %}
+                </div>
+              </div>
+              {% comment %} mt-4 mt-sm-0 {% endcomment %}
+              <div class="col-lg-4 col-sm-6 mt-4 mt-sm-0">
+                <div class="d-flex align-items-center justify-content-center"><img class="me-3" src="{% static "ukts/img/landing/wabc.jpeg" %}" alt="" width="180" />
+                  {% comment %} <div class="flex-1">
+                    <h4 class="mb-0">best product</h4><a class="text-700" href="#!">best.com</a>
+                  </div> {% endcomment %}
+                </div>
+              </div>
+              {% comment %} mt-4 mt-lg-0 {% endcomment %}
+              <div class="col-lg-4 col-sm-6 mt-4 mt-lg-0">
+                <div class="d-flex align-items-center justify-content-center"><img class="me-3" src="{% static "ukts/img/landing/adidas.png" %}" alt="" width="180" />
+                  {% comment %} <div class="flex-1">
+                    <h4 class="mb-0">ultimate originality</h4><a class="text-700" href="#!">ultimate.com</a>
+                  </div> {% endcomment %}
+                </div>
+              </div>
+
+              
             </div>
           </div>
-        </div>
-        <!-- end of .container-->
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
 
-      </section>
-      <!-- <section> close ============================-->
-      <!-- ============================================--> {% endcomment %}
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class=" py-6 font-sans-serif" id="footerLinks">
 
+          <div class="container">
+            <div class="row">
 
-    </main>
-    <!-- ===============================================-->
-    <!--    End of Main Content-->
-    <!-- ===============================================-->
+              {% comment %} <div class="col-lg-6 col-xl-5 pe-lg-8">
+                <h4 class="text-300 mb-4">join sparrow</h4><a class="d-inline-block" href="#!"><span class="fa-stack fa-stack-size me-2 text-dark border rounded-circle bg-white fs-1"><i class="fab fa-facebook-f fa-stack-1x"></i></span></a><a class="d-inline-block" href="#!"><span class="fa-stack fa-stack-size me-2 text-dark border rounded-circle bg-white fs-1"><i class="fab fa-instagram fa-stack-1x"></i></span></a><a class="d-inline-block" href="#!"><span class="fa-stack fa-stack-size text-dark border rounded-circle bg-white fs-1"><i class="fab fa-youtube fa-stack-1x"></i></span></a>
+                <p class="text-500 mt-4">Sign up to get the latest News to your inbox.</p>
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" placeholder="Email" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                  <button class="btn border border-light text-light px-4" id="button-addon2" type="button">Sign up</button>
+                </div>
+              </div> {% endcomment %}
+              <div class="col mt-6 mt-lg-0">
+                <div class="row">
+                  <div class="col-6 col-sm-4">
+                    <h4 class="text-300 mb-4">Kontakt</h4>
+                    <p class="text-500 mt-4">Udruženje košarkaških trenera Srbije UKTS </br> Sazonova 83 </br> 11000 Beograd, Srbija</p>
+                    <p class="text-500 ">Email: ukts@ukts.rs </p>
+                    <p class="text-500 ">Telefon 1: +381 11 3400 851 </br> Telefon 2: +381 11 3400 852</p>
+                    {% comment %} <p class="text-500 ">Sign up to get the latest News to your inbox.</p> {% endcomment %}
+                  </div>
+                  <div class="col-6 col-sm-2">
+                    <h4 class="text-300 mb-4">Informacije</h4>
+                    <ul class="list-unstyled">
+                      <li class="py-1"><a class="text-500" href="#!">O nama</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">Kontakt</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">Impresum</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">Vaši podaci</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">Cookie policy</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-sm-2 mt-6 mt-sm-0">
+                    <h4 class="text-300 mb-4">Social media</h4>
+                    <ul class="list-unstyled">
+                      <li class="py-1"><a class="text-500" href="#!">Twitter</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">Facebook</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">Instagram</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">Youtube</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">LinkedIn</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-sm-4 mt-6 mt-sm-0">
+                    <h4 class="text-300 mb-4">Saradnja/Lige</h4>
+                    <ul class="list-unstyled">
+                      <li class="py-1"><a class="text-500" href="#!">KSS - Košarkaški Savez Srbije</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">FIBA</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">FIBA Coaches Association</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">KSS - Lige</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">KLS - Košarkaška Liga Srbije</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">ZKLS - Zenska Košarkaška Liga Srbije</a></li>
+                      <li class="py-1"><a class="text-500" href="#!">KSS- Shop</a></li>
+                    </ul>
+                  </div>
 
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
 
+        
 
-
-    {% include 'ukts/partials/_footer.html' %}
-
-    {% endblock content %} 
+    {% endblock novosti %} 

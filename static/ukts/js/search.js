@@ -32,10 +32,17 @@ const sendSearchData = (trener) => {
                         <div class="col">
 
                           <div class="row g-0 align-items-center">
-                            <div class="col-2"><img class="me-3" src="${trener.slika_resize}" alt="" width="50" /></div>
-                            <div class="col-10 mt-2">
+                            
+                            <div class="col-6 mt-2">
                                 <h5 class="fw-bold mb-0 alignleft">${trener.ime}</h5>
-                                <h6 class="fs-0 fw-normal mb-0 alignright">${trener.licenca}</h6>
+                                
+                                <h5 class="fw-bold mb-0 alignleft"> &nbsp ${trener.prezime}</h5>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <h6 class="fs-0 fw-normal mb-0 text-end">${trener.licenca}</h6>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <h6 class="fs-0 fw-normal mb-0 text-end">${trener.boja}</h6>
                             </div>
                           </div>
                           

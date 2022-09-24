@@ -58,15 +58,21 @@
 
                 
                 <div class="col-lg-4 col-md-6 col-lg mt-6 "><a style="text-decoration : none" href="{{ post.get_absolute_url }}">
-                  <img class=" overlay overlay-1 rounded img-fluid" src=".{{ post.image_resize.url }}" alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></a>
+                  <a  style="text-decoration : none" href="{{ post.get_absolute_url }}">
+                    <img class=" overlay overlay-1 rounded img-fluid" src=".{{ post.image_resize.url }}" alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></a>
+                  </a>
                   <div class="overflow-hidden text-start" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                    <h4 class="mt-4 mb-2 text-start" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>{{ post.title|truncatechars:30 }}</h4>
-                    <p class="text-start" data-zanim-xs='{"delay":0.3,"animation":"slide-right"}'>{{ post.body|safe|striptags|truncatechars:210 }}</p>
-                    
                     <a  style="text-decoration : none" href="{{ post.get_absolute_url }}">
-                    <div data-zanim-xs='{"delay":0.4,"animation":"slide-right"}'>
+                      <h4 class="mt-4 mb-2 text-start" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>{{ post.title|truncatechars:30 }}</h4>
+                    </a>
+                    <a  style="text-decoration : none" href="{{ post.get_absolute_url }}">
+                      <p class="text-start" data-zanim-xs='{"delay":0.3,"animation":"slide-right"}'>{{ post.body|safe|striptags|truncatechars:210 }}</p>
+                    </a>
+                    <a  style="text-decoration : none" href="{{ post.get_absolute_url }}">
+                    </a>
+                      <div data-zanim-xs='{"delay":0.4,"animation":"slide-right"}'>
                         <h6 class=" fw-bold outline-none alignleft">{{ post.publish.date|date:'d/m/Y' }}</h6>
-                        <h6 class=" fw-bold outline-none alignright"><i class="far fa-comment"></i> {{ post.comments.count }}  </h6> 
+                        <h6 class=" fw-bold outline-none alignright"><span class="far fa-comment"></span> {{ post.comments.count }}  </h6> 
                         {% comment %} komentar{{ post.comments.count|pluralize:"a" }} {% endcomment %}
                         {% comment %} <a class="btn btn-link ps-0 text-black fw-bold outline-none" style="text-decoration : none" href="{{ post.get_absolute_url }}">{{ post.publish.date }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ post.comments.count }} komentar{{ post.comments.count|pluralize:"a" }}</a> {% endcomment %}
                     </div>

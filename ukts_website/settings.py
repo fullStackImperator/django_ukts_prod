@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'django_countries',
 
-    'storages'
+    'storages',
+    'django_social_share',
 ]
 
 
@@ -65,7 +66,7 @@ TAGGIT_CASE_INSENSITIVE = True
 
 SITE_ID = 1
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 #ckeditor upload path
 CKEDITOR_UPLOAD_PATH="uploads/"
@@ -191,7 +192,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR /"media/"
 
 
-# S3 configuration
+# S3 configuration UKTS
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # AWS_QUERYSTRING_AUTH = False
@@ -199,8 +200,23 @@ MEDIA_ROOT = BASE_DIR /"media/"
 
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AWS_S3_ACCESS_KEY_ID = 'AKIAW5FRUHHA72EAPMOY'
-# AWS_S3_SECRET_ACCESS_KEY = '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'
+# AWS_S3_ACCESS_KEY_ID = 'AKIAVWVPP5SKEO3KWVMM'
+# AWS_S3_SECRET_ACCESS_KEY = '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'
+
+# AWS_STORAGE_BUCKET_NAME = 'ukts'
+
+
+
+# S3 configuration Stevan
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# AWS_QUERYSTRING_AUTH = False
+# AWS_DEFAULT_ACL = 'public-read'
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# AWS_S3_ACCESS_KEY_ID = 'AKIAW5FAPMOY'
+# AWS_S3_SECRET_ACCESS_KEY = 'j5n6KBlJmH/T0gP4QoYebvGXRQN'
 
 # AWS_STORAGE_BUCKET_NAME = 'ukts-demo'
 
@@ -211,16 +227,16 @@ MEDIA_ROOT = BASE_DIR /"media/"
 
 
 #SMTP Configuration
-DEFAULT_FROM_EMAIL = 'stvel075@gmail.com'
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST = 'smtp.zoho.com'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_USE_TLS = True
+EMAIL_PORT = 587
 # EMAIL_USE_SSL = False
 EMAIL_HOST_USER = 'stvel075@gmail.com'
-EMAIL_HOST_PASSWORD = 'Stanford83'
+EMAIL_HOST_PASSWORD = 'abschbkymapytrcx'
+
+DEFAULT_FROM_EMAIL = 'stvel075@gmail.com'
 
 
 CKEDITOR_CONFIGS = {

@@ -95,3 +95,4 @@ $slideNavPrev.click(function (e) {
 
   goToPreviousSlide(slideOut, slideIn, slideInAll);
 });
+

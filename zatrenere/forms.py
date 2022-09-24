@@ -33,14 +33,14 @@ class AplikacijaForm(forms.Form):
     opstina = forms.CharField(required=True)
     broj_opstine = forms.CharField(required=True)
     drzava = CountryField(blank_label='(Izaberite drzavu)').formfield()
-    slika = forms.FileField(required=False)
+    slika = forms.FileField(required=True)
 
     broj_licence = forms.CharField(required=True)
     boja_licence = forms.ChoiceField(choices = LICENCA_CHOICES, required=True) # choice field
 
     zvanje_licenca = forms.CharField(widget=forms.TextInput, label='Zvanje koje piše na licenci', required=True)
 
-    clan_od = forms.DateField(widget=DateInput, label='Član od') # DateField
+    # clan_od = forms.DateField(widget=DateInput, label='Član od') # DateField
 
     diploma = forms.FileField(required=True)
 

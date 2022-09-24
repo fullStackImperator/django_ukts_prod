@@ -196,7 +196,7 @@ def main_search_view(request):
 	return render(request, 'ukts/licenca/search_trener.html', {})
 
 def trener_detail_view(request, pk):
-	obj = get_object_or_404(Trener, pk=pk)
+	obj = get_object_or_404(UktsTrener, pk=pk)
 	return render(request, 'ukts/licenca/trener_detail.html', {'obj': obj})
 	# post_url+'#'+str(reply.id
 
@@ -205,7 +205,7 @@ def search_results(request):
 		res = None
 		trener = request.POST.get('trener')
 		# print(trener)
-		qs = Trener.objects.filter(ime__icontains=trener)
+		qs = UktsTrener.objects.filter(ime__icontains=trener)
 		# print(qs)
 		if len(qs) > 0 and len(trener) > 0:
 			data = []
@@ -213,9 +213,11 @@ def search_results(request):
 				item = {
 					'pk': pos.pk, 
 					'ime': pos.ime,
+					'prezime': pos.prezime,
 					'licenca': pos.licenca,
-					'slika': str(pos.slika.url),
-					'slika_resize': str(pos.slika_resize.url),
+					'boja': pos.boja,
+					# 'slika': str(pos.slika.url),
+					# 'slika_resize': str(pos.slika_resize.url),
 				}
 				data.append(item)
 			res = data

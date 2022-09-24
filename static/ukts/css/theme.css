@@ -775,7 +775,7 @@ sup {
 }
 
 a {
-  color: #045bc1;
+  color:  var(--sparrow-ukts);
   text-decoration: none;
 }
 a:hover {
@@ -1193,7 +1193,7 @@ progress {
 }
 @media (min-width: 768px) {
   .container-md, .container-sm, .container {
-    max-width: 720px;
+    max-width: 760px;
   }
 }
 @media (min-width: 992px) {
@@ -7566,12 +7566,24 @@ textarea.form-control-lg {
   --sparrow-aspect-ratio: calc(3 / 4 * 100%);
 }
 
+.ratio-3x4 {
+  --sparrow-aspect-ratio: calc(4 / 3 * 100%);
+}
+
 .ratio-16x9 {
   --sparrow-aspect-ratio: calc(9 / 16 * 100%);
 }
 
+.ratio-9x16 {
+  --sparrow-aspect-ratio: calc(16 / 9 * 100%);
+}
+
 .ratio-21x9 {
   --sparrow-aspect-ratio: calc(9 / 21 * 100%);
+}
+
+.ratio-9x21 {
+  --sparrow-aspect-ratio: calc(21 / 9 * 100%);
 }
 
 .fixed-top {
@@ -8154,6 +8166,11 @@ textarea.form-control-lg {
   min-height: 50vh !important;
 }
 
+.min-vh-55 {
+  min-height: 55vh !important;
+}
+
+
 .min-vh-60 {
   min-height: 60vh !important;
 }
@@ -8168,6 +8185,18 @@ textarea.form-control-lg {
 
 .min-vh-75 {
   min-height: 75vh !important;
+}
+
+.min-vh-80 {
+  min-height: 80vh !important;
+}
+
+.min-vh-85 {
+  min-height: 85vh !important;
+}
+
+.min-vh-90 {
+  min-height: 90vh !important;
 }
 
 .min-vh-100 {

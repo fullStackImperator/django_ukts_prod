@@ -15,5 +15,7 @@ urlpatterns = [
     path('lekarski/', views.LekarskiView.as_view(), name="lekarski"),
     path('obrasci-uplatnice/', views.UplatniceView.as_view(), name="uplatnice"),
     path('aplikacija/', views.AplikacijaView, name="aplikacija"),
+    # path("success/", views.SuccessAplikacijaView, name="success"),
+
 
 ]

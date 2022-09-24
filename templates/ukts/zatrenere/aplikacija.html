@@ -6,7 +6,7 @@
 
     {% include 'ukts/partials/_navbar.html' %}
 
-    
+
 
 
 
@@ -51,9 +51,10 @@
                 <div class="col-lg-6 py-6">
                   <div class="row h-100 align-items-center justify-content-center">
                     <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll">
+                      {% include 'ukts/messages.html' %}
                       <h3 class="display-4 fs-2">Aplikacija za trenere</h3>
                       <h6 class="text-danger mt-3">Postani član Udruzenja Košarkaskih Trenera Srbije</h6>
-                      <form class="mt-5">
+                      <form class="mt-5" method="post" enctype='multipart/form-data'>
                         {% csrf_token %}
                         {% comment %} {{ form.as_p }} {% endcomment %}
                         
@@ -95,7 +96,7 @@
                             {% comment %} <input class="form-control bg-light" type="email" placeholder="Email Address" /> {% endcomment %}
                           </div>
                           <div class="col-12">
-                            <p class="fw-semi-bold text-800">vaša slika:</p>
+                            <p class="fw-semi-bold text-800">VAŠA SLIKA:</p>
                             {{form.slika|as_crispy_field }}
                             {% comment %} <input class="form-control bg-light" type="email" placeholder="Email Address" /> {% endcomment %}
                           </div>
@@ -111,13 +112,12 @@
                             {{form.zvanje_licenca|as_crispy_field }}
                             {% comment %} <input class="form-control bg-light" type="email" placeholder="Email Address" /> {% endcomment %}
                           </div>
-                          <div class="col-12">
-                            <p class="fw-semi-bold text-800">član UKTS od:</p>
+                          {% comment %} <div class="col-12">
+                            <p class="fw-semi-bold text-800">ČLAN UKTS OD:</p>
                             {{form.clan_od|as_crispy_field }}
-                            {% comment %} <input class="form-control bg-light" type="email" placeholder="Email Address" /> {% endcomment %}
-                          </div>                          
+                          </div>                           {% endcomment %}
                           <div class="col-12">
-                            <p class="fw-semi-bold text-800">skenirana diploma:</p>
+                            <p class="fw-semi-bold text-800">SKENIRANA DIPLOMA:</p>
                             {{form.diploma|as_crispy_field }}
                             {% comment %} <input class="form-control bg-light" type="email" placeholder="Email Address" /> {% endcomment %}
                           </div>  
@@ -136,7 +136,7 @@
                             <input class="btn btn-dark" type="submit" name="submit" value="postani član" />
                           </div>
                           <div class="col-sm">
-                            <p class="fs--1 text-700 mb-0 font-sans-serif mt-2 mt-lg-0">By signing up, you agree to the<a class="text-black" href="#!">terms and conditions.</a></p>
+                            <p class="fs--1 text-700 mb-0 font-sans-serif mt-2 mt-lg-0">By signing up, you agree to the<a class="text-black" href="#!"> terms and conditions.</a></p>
                           </div>
                         </div>
                         {% include 'bootstrap4/layout/help_text_and_errors.html' %}

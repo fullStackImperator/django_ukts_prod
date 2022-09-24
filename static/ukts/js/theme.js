@@ -2487,6 +2487,10 @@ var swiperInit = function swiperInit() {
         nextEl: swiperNav === null || swiperNav === void 0 ? void 0 : swiperNav.querySelector(Selector.SWIPER_BUTTON_NEXT),
         prevEl: swiperNav === null || swiperNav === void 0 ? void 0 : swiperNav.querySelector(Selector.SWIPER_BUTTON_PREV)
       },
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   type: "progressbar",
+      // },
       thumbs: {
         swiper: thumbsInit
       }

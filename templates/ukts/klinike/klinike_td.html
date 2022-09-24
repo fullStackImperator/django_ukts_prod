@@ -6,30 +6,7 @@
 
 {% block content %}
 
-    {% include 'ukts/partials/_navbar.html' %}
 
-
-    <!-- ===============================================-->
-    <!--    Main Content-->
-    <!-- ===============================================-->
-    <main class="main min-vh-100" id="top">
-
-
-      <!-- ============================================-->
-      <!-- Preloader ==================================-->
-      <div class="preloader" id="preloader">
-        <div class="loader">
-          <div class="line-scale-pulse-out-rapid">
-            <div> </div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div> </div>
-          </div>
-        </div>
-      </div>
-      <!-- ============================================-->
-      <!-- End of Preloader ===========================-->
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
@@ -54,7 +31,7 @@
                   <div class="col-lg-9">
                     <h1 class="text-decoration-underline d-inline fs-4 fs-md-5">Video </h1>
                     <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>   Trenerski Dani "Borivoje Cenić" </h5>
-                    <p class="mt-3">Svi snimci Beogradskih Košarkaskih Klinika. </br>Izaberite godinu i steknite znanje</p>
+                    <p class="mt-3">Svi snimci Trenerskih Dana "Borivoje Cenić". </br>Izaberite godinu i steknite znanje</p>
                     {% comment %} <p class="fs-2 text-dark font-sans-serif">Video Galerija,<span class="text-black fw-black text-decoration-underline mx-2">UKTS</span></br>Riznica znanja od 2002 godine</p><a class="btn ps-0 mt-3 mt-lg-5" href="#!" data-bigpicture='{"vimeoSrc":"58558497#t=10"}'>
                     </a> {% endcomment %}
                   </div>
@@ -108,7 +85,7 @@
    
                       {% comment %} <div class="col-12 overflow-hidden rounded position-relative" data-zanim-timeline='{"delay":0}' data-zanim-trigger="scroll"> {% endcomment %}
                         
-                        <div class="position-relative min-vh-65 h-75 py-6 d-flex justify-content-center">
+                        <div class="position-relative min-vh-60 h-75 py-6 d-flex justify-content-center">
                           <div class="bg-holder overlay overlay-2 rounded " style="background-image:url({{ klinika.cover.url }}); ">
                           </div>
       
@@ -153,16 +130,6 @@
         <!-- <section> close ============================-->
         <!-- ============================================-->
 
-
-
-    </main>
-    <!-- ===============================================-->
-    <!--    End of Main Content-->
-    <!-- ===============================================-->
-
-
-
-    {% include 'ukts/partials/_footer.html' %}
 
     {% endblock content %} 
 

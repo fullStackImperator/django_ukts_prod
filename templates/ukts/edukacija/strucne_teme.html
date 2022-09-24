@@ -3,32 +3,6 @@
 
 
 {% block content %}
-
-{% include 'ukts/partials/_navbar.html' %}
-
-    <!-- ===============================================-->
-    <!--    Main Content-->
-    <!-- ===============================================-->
-    <main class="main min-vh-100" id="top">
-
-
-        <!-- ============================================-->
-        <!-- Preloader ==================================-->
-        <div class="preloader" id="preloader">
-        <div class="loader">
-            <div class="line-scale-pulse-out-rapid">
-            <div> </div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div> </div>
-            </div>
-        </div>
-        </div>
-        <!-- ============================================-->
-        <!-- End of Preloader ===========================-->
-
-
         
         
         <!-- ============================================-->
@@ -54,33 +28,14 @@
                           <div class="mb-5">
                             <div class="overflow-hidden">
                               <h1 class="text-decoration-underline fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">Stru<span class="c">č</span>ne teme</h1>
-                              <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>  Stručni Magazin &nbsp; </h5>
+                              {% comment %} <h5 class="fw-bolder ls text-bg-primary text-uppercase" data-zanim-xs='{"delay":0.1}'>   &nbsp; </h5> {% endcomment %}
                             </div>
                           </div>
  
-
-                        {% comment %} <div class="container"> {% endcomment %}
-                          {% comment %} <div class="row border-bottom">
-                            <div class="col-7">
-                              <div class="row">
-                                <div class="col-auto"><a href="#!"><span class="fas fa-file-download fs-0 fs-md-1 fs-lg-2 invisible"></span></a></div>
-                                <div class="col">
-                                  <h6 class="fs--1 ls text-uppercase">item</h6>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-5">
-                              <div class="row">
-                                <div class="col-6 text-center">
-                                  <h6 class="fs--1 ls text-uppercase">qty.</h6>
-                                </div>
-                                <div class="col-6 text-end">
-                                  <h6 class="fs--1 ls text-uppercase">Price</h6>
-                                </div>
-                              </div>
-                            </div>
-                          </div> {% endcomment %}
-
+                          <blockquote class="blockquote my-5">
+                            <p class="fs-2 text-800 fst-italic">Za mene je, kao životni stav, značajna radoznalost. Traganje za novim znanjima meni ulepšava svaki dan.”</p>
+                            <footer class="blockquote-footer">Ranko Žeravica</footer>
+                          </blockquote>
 
                           {% for tema in teme %}
 
@@ -119,15 +74,5 @@
               <!-- <section> close ============================-->
               <!-- ============================================-->
         
-
-    </main>
-    <!-- ===============================================-->
-    <!--    End of Main Content-->
-    <!-- ===============================================-->
-    
-    
-    {% include 'ukts/partials/_footer.html' %}
-    
-    
         
 {% endblock content %} 

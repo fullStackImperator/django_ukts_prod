@@ -57,12 +57,16 @@
                             {% comment %} <p class="mb-4">Ukucajte ime u donje polje i nadjite trenera</p> {% endcomment %}
                           </div>
 
-                          <form class="d-flex" method="post" id="search-form" autocomplete="off">
+                          <form class="input-iconic" method="post" id="search-form" autocomplete="off">
                             {% csrf_token %}
 
-                            <div class="input-group mb-3">
+                            {% comment %} <div class="input-group mb-3"> {% endcomment %}
+                              {% comment %} <span class="fas fa-search text-500"></span> {% endcomment %}
+                              <div class="input-icon">
+                                <button type="submit"><span class="fas fa-search text-500"></span></button>
+                              </div>
                               <input class="form-control bg-100 mb-5" id="search-input" type="text" placeholder="Ukucajte ime trenera ovde" aria-label="Ime trenera" aria-describedby="button-addon-interior" />
-                            </div>
+                            {% comment %} </div> {% endcomment %}
 
                           </form>
 
@@ -71,7 +75,7 @@
 
                             <div class="row border-bottom">
                   
-                              <div class="col-7">
+                              <div class="col-6">
                                 <div class="row align-items-center">
                                     {% comment %} <div class="col-auto"><a href="#!"><span class="fas fa-times fs-0 fs-md-1 fs-lg-2 invisible"></span></a></div> {% endcomment %}
                                     <div class="col">
@@ -79,10 +83,17 @@
                                     </div>
                                 </div>
                               </div>
-                              <div class="col-5">
+                              <div class="col-3">
                                 <div class="row align-items-center">
                                   <div class="col-12 text-end">
                                     <h6 class="fs--1 ls text-uppercase text-end">Licenca</h6>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-3">
+                                <div class="row align-items-center">
+                                  <div class="col-12 text-end">
+                                    <h6 class="fs--1 ls text-uppercase text-end">Boja</h6>
                                   </div>
                                 </div>
                               </div>

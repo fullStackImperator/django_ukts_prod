@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Knjige, FibaAssist, StrucneTeme, Linkovi, LinkoviPDF
+from .models import Knjige, FibaAssist, StrucneTeme, Linkovi, LinkoviPDF, Knjiga_Promocija
 
 @admin.register(Knjige)
 class KnjigeAdmin(admin.ModelAdmin):
@@ -35,3 +35,9 @@ class LinkoviPDFAdmin(admin.ModelAdmin):
     list_display = ('name', )
     list_filter = ('name', )
     search_fields = ('name', )
+
+@admin.register(Knjiga_Promocija)
+class Knjiga_PromocijaAdmin(admin.ModelAdmin):
+    list_display = ('naslov', 'autor')
+    list_filter = ('naslov', 'autor')
+    search_fields = ('naslov', 'autor')

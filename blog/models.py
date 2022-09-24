@@ -35,11 +35,11 @@ class Post(models.Model):
     objects = models.Manager() # The default manager.
     published = PublishedManager() # Our custom manager.
 
-    image = models.ImageField(upload_to='featured_image/%Y/%m/%d/')
+    image = models.ImageField(upload_to='post_image/%Y/%m/%d/')
 
     image_resize = ImageSpecField(
         source='image', 
-        processors=[Resize(508,508)],
+        processors=[Resize(500,300)],
         format='JPEG',
         options={'quality': 60},
     )
